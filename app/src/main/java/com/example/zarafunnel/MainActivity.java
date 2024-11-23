@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnProductClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +21,19 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        //obtener focus para que se vea el cursor al entrar a la Activity
+        // Obtener focus para que se vea el cursor al entrar a la Activity
         EditText searchBar = findViewById(R.id.searchBar);
         searchBar.requestFocus();
-        //Cargar el fragmento
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, new ProductListFragment())
-                .commit();
-        //Cargar el fragmento ProductListFragment dentro del FrameLayout
+
+        // Cargar el fragmento ProductListFragment
         if (savedInstanceState == null) {
-            //Crear una nueva instancia del ProductListFragment
             ProductListFragment productListFragment = new ProductListFragment();
 
-            //Usar FragmentTransaction para añadir el fragmento al FrameLayout
+            // Usar FragmentTransaction para añadir el fragmento al FrameLayout
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainer, productListFragment);
             transaction.commit();
         }
-
 
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -59,12 +54,24 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-
-
+        // Configuración de la ventana para el sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    @Override
+    public void onProductClick(Product product) {
+        // Crear una nueva instancia del BottomSheet y pasar los datos del producto
+        ProductDetailsBottomSheet bottomSheet = ProductDetailsBottomSheet.newInstance(
+                product.getName(),
+                product.getPrice(),
+                product.getImageResId()
+        );
+
+        // Mostrar el BottomSheet
+        bottomSheet.show(getSupportFragmentManager(), "ProductDetailsBottomSheet");
     }
 }

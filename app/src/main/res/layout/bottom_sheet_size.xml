@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:layout_gravity="bottom"
+    android:elevation="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="SELECCIONA UNA TALLA"
+        android:textSize="13sp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:textColor="@android:color/black"
+        android:gravity="left"
+        android:paddingBottom="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Si necesitas ayuda, indícanos tus medidas y calcularemos cuál es la talla que más se adapta a ti."
+        android:textSize="14sp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:textColor="@android:color/black"
+        android:gravity="left"
+        android:paddingBottom="16dp"/>
+
+    <Button
+        android:id="@+id/suggestSize"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="RECOMENDADOR DE TALLA"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:textSize="14sp"
+        app:cornerRadius="0dp"
+        android:fontFamily="@font/helvetica_neue_medium" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:weightSum="3" >
+
+            <Button
+                android:id="@+id/sizeSmall"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:text="S"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:textSize="20sp"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/sizeMedium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:text="M"
+                android:fontFamily="@font/helvetica_neue_medium"
+                app:cornerRadius="0dp" />
+
+            <Button
+                android:id="@+id/sizeLarge"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:textSize="20sp"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="8dp"
+                android:text="L"
+                app:cornerRadius="0dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/selectSizeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONTINUAR"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
+        android:textSize="14sp"
+        android:fontFamily="@font/helvetica_neue_medium" />
+
+</LinearLayout>

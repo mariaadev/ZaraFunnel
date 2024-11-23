@@ -27,8 +27,9 @@ public class ProductListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product_list, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
+        // Lista de productos
         List<Product> productList = new ArrayList<>();
         productList.add(new Product("JEANS TRF WIDE LEG", "29,95 EUR", R.drawable.model3_image4));
         productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model6_image4));
@@ -36,9 +37,14 @@ public class ProductListFragment extends Fragment {
         productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model5_image4));
         productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model4_image4));
         productList.add(new Product("CAMISETA ALGODÓN", "9,95 EUR", R.drawable.model3_image4));
-        ProductAdapter adapter = new ProductAdapter(productList);
-        recyclerView.setAdapter(adapter);
+
+        // Verifica si el contexto es adecuado para el listener
+        if (getActivity() instanceof OnProductClickListener) {
+            ProductAdapter adapter = new ProductAdapter(productList, (OnProductClickListener) getActivity());
+            recyclerView.setAdapter(adapter);
+        }
 
         return view;
     }
 }
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_color">
+
+    <ImageButton
+        android:id="@+id/closeButton"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/close"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="14dp"
+        android:contentDescription="Cerrar"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_gravity="start"
+        />
+
+
+
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product name"
+        android:textSize="18sp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product price"
+        android:textSize="14sp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="305dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/close_icon"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:gravity="center"
+            android:text="AÑADIR"
+            android:textColor="@color/background_color"
+            app:cornerRadius="0dp" />
+
+        <ImageButton
+            android:id="@+id/button_save"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:background="#141111"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:src="@drawable/save_button" />
+    </LinearLayout>
+
+
+</LinearLayout>
