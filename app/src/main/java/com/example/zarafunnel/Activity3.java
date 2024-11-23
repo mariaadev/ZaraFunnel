@@ -3,6 +3,7 @@ package com.example.zarafunnel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,12 +25,17 @@ public class Activity3 extends AppCompatActivity {
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
     private List<Product> cartProducts;
+    private Button btn_buy;
+
     private static final String TAG = "Activity3";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_3);
+
+        btn_buy = findViewById(R.id.btn_buy);
+
         // Obtener los datos del producto
         Intent intent = getIntent();
         Product selectedProduct = (Product) intent.getSerializableExtra("selectedProduct");
@@ -52,7 +59,17 @@ public class Activity3 extends AppCompatActivity {
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);
 
+        // Configurar el botón de finalizar compra
+        btn_buy.setOnClickListener(v -> {
+            // Crear un nuevo Intent para pasar a la pantalla de pago
+            Intent paymentIntent = new Intent(Activity3.this, Activity4.class);
 
+            // Pasar la lista de productos al siguiente Activity usando putSerializable
+            paymentIntent.putExtra("cartItems", (Serializable) cartProducts);
+
+            // Iniciar la actividad de pago
+            startActivity(paymentIntent);
+        });
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         bottomNavigationView.setSelectedItemId(R.id.bag);
@@ -73,6 +90,7 @@ public class Activity3 extends AppCompatActivity {
             }
             return false;
         });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

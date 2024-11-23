@@ -1,0 +1,43 @@
+package com.example.zarafunnel;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import java.util.List;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+
+public class Activity4 extends AppCompatActivity {
+    private List<Product> cartProducts;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_4);
+
+        // Recuperar la lista de productos del Intent
+        Intent intent = getIntent();
+        cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
+
+        if (cartProducts != null) {
+            //Mostrar la lista en un RecyclerView o mostrar los datos del carrito
+            Log.d("Activity4", "Productos recibidos: " + cartProducts.size());
+        } else {
+            Log.d("Activity4", "No se recibieron productos.");
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+}
