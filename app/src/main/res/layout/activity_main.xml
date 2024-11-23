@@ -16,6 +16,7 @@
         android:layout_marginBottom="32dp"
         android:text="@string/searchBarTitle"
         android:textAlignment="center"
+        android:fontFamily="@font/helvetica_neue_light"
         android:textColor="@android:color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/searchBar"
@@ -40,10 +41,25 @@
         android:textColor="@android:color/black"
         android:textCursorDrawable="@drawable/cursor_black"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintBottom_toTopOf="@+id/suggestedText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchTitle" />
+
+    <TextView
+        android:id="@+id/suggestedText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:gravity="start"
+        android:text="TE PUEDE INTERESAR"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:height="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar" />
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
@@ -51,8 +67,11 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar" />
+        app:layout_constraintTop_toBottomOf="@id/suggestedText"
+        app:layout_constraintVertical_bias="0.0">
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -61,6 +80,7 @@
         android:background="@color/background_color"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="unlabeled"
+        style="@style/BottomNavViewStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

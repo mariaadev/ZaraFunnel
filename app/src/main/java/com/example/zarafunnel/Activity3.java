@@ -26,17 +26,17 @@ public class Activity3 extends AppCompatActivity {
             if (itemId == R.id.home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0, 0);
-                finish(); // Close the current activity
-                return true; // Stay on the current activity
+                finish();
+                return true;
             } else if (itemId == R.id.profile) {
                 startActivity(new Intent(getApplicationContext(), Activity2.class));
                 overridePendingTransition(0, 0);
-                finish(); // Close the current activity
+                finish();
                 return true;
             } else if (itemId == R.id.bag) {
                 return true;
             }
-            return false; // If none of the above cases match
+            return false;
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

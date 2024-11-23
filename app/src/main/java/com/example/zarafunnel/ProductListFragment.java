@@ -30,13 +30,12 @@ public class ProductListFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("Jeans TRF Wide Leg", "29,95 EUR", R.drawable.profile));
-        productList.add(new Product("Camiseta Rib Effect", "9,95 EUR", R.drawable.profile));
-        productList.add(new Product("Jeans TRF Wide Leg", "29,95 EUR", R.drawable.profile));
-        productList.add(new Product("Camiseta Rib Effect", "9,95 EUR", R.drawable.profile));
-        productList.add(new Product("Jeans TRF Wide Leg", "29,95 EUR", R.drawable.profile));
-        productList.add(new Product("Camiseta Rib Effect", "9,95 EUR", R.drawable.profile));
-
+        productList.add(new Product("JEANS TRF WIDE LEG", "29,95 EUR", R.drawable.model3_image4));
+        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model6_image4));
+        productList.add(new Product("CAMISETA ALGODÓN", "9,95 EUR", R.drawable.model_image4));
+        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model5_image4));
+        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model4_image4));
+        productList.add(new Product("CAMISETA ALGODÓN", "9,95 EUR", R.drawable.model3_image4));
         ProductAdapter adapter = new ProductAdapter(productList);
         recyclerView.setAdapter(adapter);
 

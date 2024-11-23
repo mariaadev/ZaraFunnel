@@ -11,7 +11,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             transaction.replace(R.id.fragmentContainer, productListFragment);
             transaction.commit();
         }
+
 
         bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnItemSelectedListener(item -> {

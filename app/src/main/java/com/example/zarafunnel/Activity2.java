@@ -26,14 +26,14 @@ public class Activity2 extends AppCompatActivity {
             if (itemId == R.id.home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0, 0);
-                finish(); // Close the current activity
-                return true; // Stay on the current activity
+                finish();
+                return true;
             } else if (itemId == R.id.profile) {
                 return true;
             } else if (itemId == R.id.bag) {
                 startActivity(new Intent(getApplicationContext(), Activity3.class));
                 overridePendingTransition(0, 0);
-                finish(); // Close the current activity
+                finish();
                 return true;
             }
             return false; // If none of the above cases match
