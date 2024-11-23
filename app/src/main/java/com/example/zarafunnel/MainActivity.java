@@ -10,9 +10,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
-
+import android.util.Log;
 public class MainActivity extends AppCompatActivity implements OnProductClickListener {
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
 
     @Override
     public void onProductClick(Product product) {
+        Log.d(TAG, "Producto seleccionado: " + product.getName());
+        Log.d(TAG, "Precio del producto: " + product.getPrice());
+        Log.d(TAG, "ID de imagen del producto: " + product.getImageResId());
         // Crear una nueva instancia del BottomSheet y pasar los datos del producto
         ProductDetailsBottomSheet bottomSheet = ProductDetailsBottomSheet.newInstance(
                 product.getName(),

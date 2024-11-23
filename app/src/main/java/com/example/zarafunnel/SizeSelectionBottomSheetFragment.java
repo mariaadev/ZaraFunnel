@@ -1,5 +1,6 @@
 package com.example.zarafunnel;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,78 +8,95 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 public class SizeSelectionBottomSheetFragment extends BottomSheetDialogFragment {
 
-    // Variable para almacenar la talla seleccionada
+    private String productName;
+    private String productPrice;
+    private int productImageResId;
     private String selectedSize = "";
-    // Obtener los botones de talla
-    Button sizeSmallButton ;
-    Button sizeMediumButton;
-    Button sizeLargeButton ;
+
+    private Button sizeSmallButton;
+    private Button sizeMediumButton;
+    private Button sizeLargeButton;
+
+    public static SizeSelectionBottomSheetFragment newInstance(String productName, String productPrice, int productImageResId) {
+        SizeSelectionBottomSheetFragment fragment = new SizeSelectionBottomSheetFragment();
+        Bundle args = new Bundle();
+        args.putString("productName", productName);
+        args.putString("productPrice", productPrice);
+        args.putInt("productImageResId", productImageResId);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflar la vista del bottom sheet
         View view = inflater.inflate(R.layout.bottom_sheet_size, container, false);
 
-        // Obtener los botones de talla
+        // Recuperar los datos
+        if (getArguments() != null) {
+            productName = getArguments().getString("productName");
+            productPrice = getArguments().getString("productPrice");
+            productImageResId = getArguments().getInt("productImageResId");
+
+            // Verificar los valores recibidos
+            Log.d("SizeSelection", "Datos recibidos - Nombre: " + productName + ", Precio: " + productPrice + ", ID Imagen: " + productImageResId);
+        } else {
+            Log.d("SizeSelection", "Error: Los datos no fueron pasados correctamente al SizeSelectionBottomSheet.");
+        }
+
         sizeSmallButton = view.findViewById(R.id.sizeSmall);
         sizeMediumButton = view.findViewById(R.id.sizeMedium);
         sizeLargeButton = view.findViewById(R.id.sizeLarge);
 
-        // Definir un OnClickListener para cada botón de talla
         sizeSmallButton.setOnClickListener(v -> {
-            selectedSize = "S"; // Establecer la talla seleccionada
-            showSelectedSizeToast("S");
+            selectedSize = "S";
             selectButton(sizeSmallButton);
         });
 
         sizeMediumButton.setOnClickListener(v -> {
-            selectedSize = "M"; // Establecer la talla seleccionada
-            showSelectedSizeToast("M");
+            selectedSize = "M";
             selectButton(sizeMediumButton);
         });
 
         sizeLargeButton.setOnClickListener(v -> {
-            selectedSize = "L"; // Establecer la talla seleccionada
-            showSelectedSizeToast("L");
+            selectedSize = "L";
             selectButton(sizeLargeButton);
         });
 
+        Button selectSizeButton = view.findViewById(R.id.selectSizeButton);
+        selectSizeButton.setOnClickListener(v -> {
+            if (selectedSize.isEmpty()) {
+                Toast.makeText(getActivity(), "Por favor, selecciona una talla", Toast.LENGTH_SHORT).show();
+            } else {
+                // Crear un nuevo producto con los datos recibidos y la talla seleccionada
+                Product selectedProduct = new Product(productName, productPrice, productImageResId, selectedSize);
 
-            // Botón para confirmar la selección
-            Button selectSizeButton = view.findViewById(R.id.selectSizeButton);
-            selectSizeButton.setOnClickListener(v -> {
-                if (selectedSize.isEmpty()) {
-                    // Si no se ha seleccionado una talla, mostrar un mensaje de error
-                    Toast.makeText(getActivity(), "Por favor, selecciona una talla", Toast.LENGTH_SHORT).show();
-                } else {
-                    dismiss(); // Cerrar el bottom sheet
-                }
-            });
+                // Log para verificar el producto agregado
+                Log.d("SizeSelection", "Producto agregado al carrito: " + selectedProduct.toString());
 
-            return view;
-        }
+                // Agregar al carrito
+                ShoppingCart.addToCart(selectedProduct);
 
-    // Método auxiliar para cambiar el color del botón seleccionado
-    private void selectButton(Button selectedButton) {
-        // Reiniciar color de todos los botones
-        sizeSmallButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));       ;
-        sizeMediumButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
-        sizeLargeButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
+                // Ir a Activity3 y pasar los datos del carrito
+                Intent intent = new Intent(getActivity(), Activity3.class);
+                startActivity(intent);
+                dismiss(); // Cerrar el BottomSheet
+            }
+        });
 
-        // Cambiar color del botón seleccionado
-        selectedButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.holo_blue_light)));  // O el color que elijas
+        return view;
     }
 
-    // Método auxiliar para mostrar el tamaño seleccionado
-    private void showSelectedSizeToast(String size) {
-        Toast.makeText(getActivity(), "Talla seleccionada: " + size, Toast.LENGTH_SHORT).show();
+    private void selectButton(Button selectedButton) {
+        sizeSmallButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
+        sizeMediumButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
+        sizeLargeButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
+        selectedButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.holo_blue_light)));
     }
 }
