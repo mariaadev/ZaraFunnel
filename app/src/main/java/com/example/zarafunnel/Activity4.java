@@ -12,11 +12,14 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.widget.Button;
+import android.widget.ImageButton;
 import java.util.ArrayList;
 
 public class Activity4 extends AppCompatActivity {
     private List<Product> cartProducts;
-
+    private ImageButton closeButton;
+    private Button buttonGuest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,12 @@ public class Activity4 extends AppCompatActivity {
         } else {
             Log.d("Activity4", "No se recibieron productos.");
         }
+
+        closeButton = findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity3.class)));
+
+        buttonGuest = findViewById(R.id.buttonGuest);
+        buttonGuest.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity5.class)));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

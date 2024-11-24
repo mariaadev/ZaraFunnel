@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="@color/background_color"
+tools:context=".Activity5">
+
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:contentDescription="Botón Atrás"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:letterSpacing="0.05"
+
+        android:text="DATOS PERSONALES"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputPostalCode"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="CÓDIGO POSTAL"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@id/containerPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerRegion" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:textSize="13sp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@android:color/black"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:gravity="center"
+        android:text="GUARDAR"
+        android:textColor="@android:color/white"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerBusiness" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputEmail"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="EMAIL"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputName"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="NOMBRE"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputLastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputLastName"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="APELLIDOS"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputAdress"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputName" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputAdress"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="DIRECCIÓN"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputAdress2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLastName" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputAdress2"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/material_dynamic_neutral_variant70"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:hint="PISO/PUERTA U OTRO"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/inputProvince"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAdress" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputProvince"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:foregroundTint="@color/material_dynamic_neutral_variant70"
+        android:gravity="start"
+        android:hint="PROVINCIA"
+        android:inputType="text"
+        android:textSize="13sp"
+        app:boxBackgroundColor="@color/background_color"
+        app:boxStrokeColor="#000000"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/containerRegion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputAdress2">
+
+        <AutoCompleteTextView
+            android:id="@+id/menu_dropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:focusable="true"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:inputType="none"
+            android:paddingStart="0dp"
+            android:paddingLeft="0dp"
+            android:textSize="13sp"
+            app:hintTextColor="@color/material_dynamic_neutral70" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/containerRegion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/inputPostalCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputProvince">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:text="REGIÓN"
+            android:textSize="11sp"
+            android:textColor="@color/material_dynamic_neutral_variant70" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputRegion"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/material_dynamic_neutral_variant70"
+            android:clickable="false"
+            android:focusable="false"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:inputType="text"
+            android:text="España"
+            android:padding="0dp"
+            android:textColorHint="@android:color/black"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="25dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerBusiness"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerPhone">
+
+        <TextView
+            android:id="@+id/textBusiness"
+            android:layout_width="154dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:letterSpacing="0.05"
+            android:text="EMPRESA"
+            android:textSize="13sp" />
+
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/customThumbSmallSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:thumb="@drawable/thumb_drawable"
+            app:thumbTint="@color/thumb_inactive_color"
+            app:track="@drawable/switch_track_selector"
+            app:trackTint="@color/track_inactive_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerPhone"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/containerBusiness"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputPostalCode">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPhone"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/material_dynamic_neutral_variant70"
+            android:clickable="false"
+            android:focusable="false"
+            android:hint="TELÉFONO"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:inputType="text"
+            android:textColorHint="@color/material_dynamic_neutral_variant70"
+            android:textSize="13sp"
+            app:boxBackgroundMode="outline"
+            tools:layout_editor_absoluteX="25dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

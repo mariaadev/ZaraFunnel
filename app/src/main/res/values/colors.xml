@@ -5,4 +5,10 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="close_icon">#000000</color>
+
+    <color name="thumb_active_color">#FFFFFF</color>
+    <color name="thumb_inactive_color">#FFFFFF</color>
+
+    <color name="track_active_color">#4CAF50</color>
+    <color name="track_inactive_color">#B0BEC5</color>
 </resources>
