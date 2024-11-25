@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.io.Serializable;
 import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -41,7 +43,12 @@ public class Activity4 extends AppCompatActivity {
         closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity3.class)));
 
         buttonGuest = findViewById(R.id.buttonGuest);
-        buttonGuest.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity5.class)));
+        buttonGuest.setOnClickListener(v -> {
+            //Pasar los productos del carrito a la actividad 5
+            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
+            startActivity(intentToActivity5);
+        });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

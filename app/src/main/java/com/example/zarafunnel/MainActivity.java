@@ -9,9 +9,10 @@ import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.util.Log;
-public class MainActivity extends AppCompatActivity implements OnProductClickListener {
+public class MainActivity extends AppCompatActivity implements OnProductClickListener, BottomNavigationViewFragment.NavigationListener {
     private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         // Obtener focus para que se vea el cursor al entrar a la Activity
         EditText searchBar = findViewById(R.id.searchBar);
@@ -35,24 +35,11 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
             transaction.commit();
         }
 
-        bottomNavigationView.setSelectedItemId(R.id.home);
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.home) {
-                return true;
-            } else if (itemId == R.id.profile) {
-                startActivity(new Intent(getApplicationContext(), Activity2.class));
-                overridePendingTransition(0, 0);
-                finish();
-                return true;
-            } else if (itemId == R.id.bag) {
-                startActivity(new Intent(getApplicationContext(), Activity3.class));
-                overridePendingTransition(0, 0);
-                finish();
-                return true;
-            }
-            return false;
-        });
+        // Cargar el fragmento con el BottomNavigationView
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.bottomNavigationViewConatiner, new BottomNavigationViewFragment())
+                .commit();
 
         // Configuración de la ventana para el sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -61,6 +48,26 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
             return insets;
         });
     }
+
+    @Override
+    public void onNavigationItemSelected(int itemId) {
+        if (itemId == R.id.home) {
+            //Activity actual
+        } else if (itemId == R.id.profile) {
+            startActivity(new Intent(this, Activity2.class));
+            overridePendingTransition(0, 0); // Animación de transición
+            finish();
+
+        } else if (itemId == R.id.bag) {
+            startActivity(new Intent(this, Activity3.class));
+            overridePendingTransition(0, 0);
+            finish();
+
+        }
+
+    }
+
+
 
     @Override
     public void onProductClick(Product product) {
