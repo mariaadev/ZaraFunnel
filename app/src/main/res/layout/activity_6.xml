@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".Activity6">
     <ImageButton
         android:id="@+id/backButton"
@@ -77,11 +78,16 @@
     </LinearLayout>
     <TextView
         android:id="@+id/addressTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:text="CARRER MOLI D’EN RATA 16"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
+        android:textSize="12sp"
+        app:backgroundTint="@null"
+        android:paddingStart="20dp"
+        android:padding="0dp"
+        android:fontFamily="@font/helvetica_neue_light"
+        style="@style/CustomButtonStyle"
+        android:textAlignment="textStart"
         app:layout_constraintTop_toBottomOf="@id/optionsLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -115,6 +121,7 @@
             android:id="@+id/optionFriday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_light"
             android:text="VIERNES 15 DE NOVIEMBRE\nEnvío gratuito a partir de 30 EUR aplica solo a artículos sin descuento"
             android:layout_marginVertical="8dp"
             android:textSize="14sp" />
@@ -126,6 +133,7 @@
             android:id="@+id/optionThursday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/helvetica_neue_light"
             android:text="JUEVES 14 DE NOVIEMBRE\nEntrega garantizada"
             android:layout_marginVertical="8dp"
             android:textSize="14sp" />
@@ -139,6 +147,8 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/black"
         android:text="CONTINUAR"
+        android:textSize="12sp"
+        android:fontFamily="@font/helvetica_neue_light"
         android:textColor="@android:color/white"
         app:cornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
