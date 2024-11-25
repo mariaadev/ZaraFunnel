@@ -34,8 +34,6 @@ public class Activity6 extends AppCompatActivity {
         String region = intent.getStringExtra("region");
         boolean isBusiness = intent.getBooleanExtra("isBusiness", false);
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
-        textView = findViewById(R.id.textView);
-        textView.setText("Nombre: " + name + "\n" + "Apellidos: " + lastName + "\n" + "Email: " + email);
 
         if (cartProducts != null) {
             for (Product product : cartProducts) {

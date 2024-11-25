@@ -8,9 +8,6 @@
     android:padding="16dp"
     android:background="@color/background_color">
 
-    <!-- Close Button -->
-
-    <!-- Login Image -->
     <ImageButton
         android:id="@+id/closeButton"
         android:layout_width="15dp"
@@ -27,7 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Text Experience -->
     <ImageView
         android:id="@+id/loginImage"
         android:layout_width="414dp"
@@ -40,7 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/closeButton" />
 
-    <!-- Text Login -->
 
     <TextView
         android:id="@+id/textExperience"
@@ -72,7 +67,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textExperience" />
 
-    <!-- Button Login -->
 
 
     <Button

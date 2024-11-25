@@ -6,11 +6,139 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity6">
-
-    <TextView
-        android:id="@+id/textView"
+    <ImageButton
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:contentDescription="Botón Atrás"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/optionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="@id/backButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/homeOption"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="center"
+            app:backgroundTint="@null"
+            android:padding="0dp"
+            style="@style/CustomButtonStyle"
+            android:text="CASA"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/storeOption"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:text="TIENDA DE ZARA"
+            android:padding="0dp"
+            android:textSize="12sp"
+            app:cornerRadius="0dp"
+        />
+
+
+        <Button
+            android:id="@+id/pickupOption"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:textSize="12sp"
+            android:fontFamily="@font/helvetica_neue_light"
+            android:text="PUNTO DE ENTREGA"
+            app:cornerRadius="0dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CARRER MOLI D’EN RATA 16"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/optionsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+    <ImageView
+        android:id="@+id/productImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/model2_image1"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/addressTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <RadioGroup
+        android:id="@+id/shippingOptionsGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/productImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <RadioButton
+            android:id="@+id/optionFriday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIERNES 15 DE NOVIEMBRE\nEnvío gratuito a partir de 30 EUR aplica solo a artículos sin descuento"
+            android:layout_marginVertical="8dp"
+            android:textSize="14sp" />
+
+
+
+
+        <RadioButton
+            android:id="@+id/optionThursday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JUEVES 14 DE NOVIEMBRE\nEntrega garantizada"
+            android:layout_marginVertical="8dp"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/continueButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/black"
+        android:text="CONTINUAR"
+        android:textColor="@android:color/white"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shippingOptionsGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
