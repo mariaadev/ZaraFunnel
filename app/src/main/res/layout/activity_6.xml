@@ -34,18 +34,23 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/homeOption"
+            style="@style/CustomButtonStyle"
             android:layout_width="0dp"
             android:layout_height="100dp"
+            android:layout_margin="0dp"
             android:layout_weight="1"
+            android:drawableTop="@drawable/mirrored_icon"
             android:fontFamily="@font/helvetica_neue_medium"
             android:gravity="center"
-            app:backgroundTint="@null"
-            android:padding="0dp"
-            style="@style/CustomButtonStyle"
+            android:includeFontPadding="false"
             android:text="CASA"
             android:textSize="10sp"
             android:textStyle="bold"
-            app:cornerRadius="0dp" />
+            app:backgroundTint="@null"
+            app:cornerRadius="0dp"
+            android:paddingTop="15dp"
+            app:iconPadding="-10dp"
+            app:iconSize="10dp" />
 
         <Button
             android:id="@+id/storeOption"
