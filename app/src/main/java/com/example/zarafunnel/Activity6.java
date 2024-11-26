@@ -52,7 +52,7 @@ public class Activity6 extends AppCompatActivity {
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
 
         // Configurar el adaptador con los productos del carrito
-        productAdapter = new ProductAdapter(cartProducts);
+        productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
         productsRecyclerView.setAdapter(productAdapter);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

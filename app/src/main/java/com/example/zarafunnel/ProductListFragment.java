@@ -40,7 +40,7 @@ public class ProductListFragment extends Fragment {
 
         // Verifica si el contexto es adecuado para el listener
         if (getActivity() instanceof OnProductClickListener) {
-            ProductAdapter adapter = new ProductAdapter(productList, (OnProductClickListener) getActivity());
+            ProductAdapter adapter = new ProductAdapter(productList, (OnProductClickListener) getActivity(), R.layout.item_product);
             recyclerView.setAdapter(adapter);
         }
 

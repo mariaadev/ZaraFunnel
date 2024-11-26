@@ -15,23 +15,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private List<Product> productList;
     private OnProductClickListener listener;
-
+    private int layoutResId;
     // Constructor para el adaptador que recibe la lista de productos y el listener
-    public ProductAdapter(List<Product> productList, OnProductClickListener listener) {
+    public ProductAdapter(List<Product> productList, OnProductClickListener listener, int layoutResId) {
         this.productList = productList;
         this.listener = listener; // Guardamos el listener
+        this.layoutResId = layoutResId;
     }
 
     // Constructor para el adaptador que recibe la lista de productos pero sin necesidad de listener
-    public ProductAdapter(List<Product> productList) {
+    public ProductAdapter(List<Product> productList, int layoutResId) {
         this.productList = productList;
         this.listener = null;
+        this.layoutResId = layoutResId;
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutResId, parent, false);
         return new ProductViewHolder(view);
     }
 
