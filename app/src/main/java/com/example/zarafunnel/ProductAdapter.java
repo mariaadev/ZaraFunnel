@@ -22,6 +22,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         this.listener = listener; // Guardamos el listener
     }
 
+    // Constructor para el adaptador que recibe la lista de productos pero sin necesidad de listener
+    public ProductAdapter(List<Product> productList) {
+        this.productList = productList;
+        this.listener = null;
+    }
+
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

@@ -1,5 +1,6 @@
 package com.example.zarafunnel;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +10,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigationViewFragment extends Fragment {
-
+    // Configurar el BottomNavigationView
+    BottomNavigationView bottomNavigationView;
     public interface NavigationListener {
         void onNavigationItemSelected(int itemId);
     }
@@ -49,7 +53,7 @@ public class BottomNavigationViewFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Configurar el BottomNavigationView
-        BottomNavigationView bottomNavigationView = view.findViewById(R.id.bottomNavigationView);
+        bottomNavigationView = view.findViewById(R.id.bottomNavigationView);
 
         // Configurar el elemento seleccionado por defecto
         bottomNavigationView.setSelectedItemId(R.id.home);
@@ -71,5 +75,10 @@ public class BottomNavigationViewFragment extends Fragment {
         } else if (getActivity() instanceof Activity3) {
             bottomNavigationView.setSelectedItemId(R.id.bag);  // Bag como seleccionado
         }
+
+
     }
+
+
+
 }

@@ -20,6 +20,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.widget.TextView;
+import android.widget.ImageView;
+import android.view.View;
 
 public class Activity3 extends AppCompatActivity implements BottomNavigationViewFragment.NavigationListener {
 
@@ -27,6 +30,10 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
     private CartAdapter cartAdapter;
     private List<Product> cartProducts;
     private Button btn_buy;
+    private RecyclerView recyclerView;
+    private TextView emptyCartMessage;
+    private TextView emptyCartCaption;
+    private ImageView emptyCartIcon;
 
     private static final String TAG = "Activity3";
     @Override
@@ -35,14 +42,18 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_3);
 
+        //Inicializar
+        recyclerView = findViewById(R.id.recyclerViewCart);
+        emptyCartMessage = findViewById(R.id.emptyCartMessage);
+        emptyCartCaption = findViewById(R.id.emptyCartCaption);
+        emptyCartIcon = findViewById(R.id.emptyCartIcon);
+        btn_buy = findViewById(R.id.btn_buy);
+
         // Cargar el fragmento con el BottomNavigationView
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.bottomNavigationViewConatiner, new BottomNavigationViewFragment())
                 .commit();
-
-
-        btn_buy = findViewById(R.id.btn_buy);
 
         // Obtener los datos del producto
         Intent intent = getIntent();
@@ -67,6 +78,9 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);
 
+        // Verificar si el carrito está vacío y mostrar el mensaje correspondiente
+        updateCartView();
+
         // Configurar el botón de finalizar compra
         btn_buy.setOnClickListener(v -> {
             // Crear un nuevo Intent para pasar a la pantalla de pago
@@ -86,6 +100,23 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         });
     }
 
+    private void updateCartView() {
+        if (cartProducts.isEmpty()) {
+            // Mostrar el mensaje y el ícono de la cesta vacía
+            emptyCartMessage.setVisibility(View.VISIBLE);
+            emptyCartCaption.setVisibility(View.VISIBLE);
+            emptyCartIcon.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE); // Ocultar el RecyclerView si está vacío
+            btn_buy.setVisibility(View.GONE); // Ocultar el botón de finalizar compra
+        } else {
+            // Mostrar el RecyclerView y el botón si hay productos
+            emptyCartMessage.setVisibility(View.GONE);
+            emptyCartIcon.setVisibility(View.GONE);
+            emptyCartCaption.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE); // Mostrar el RecyclerView
+            btn_buy.setVisibility(View.VISIBLE); // Mostrar el botón de finalizar compra
+        }
+    }
     @Override
     public void onNavigationItemSelected(int itemId) {
         if (itemId == R.id.home) {

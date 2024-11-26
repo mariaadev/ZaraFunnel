@@ -11,10 +11,15 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+
 
 public class Activity6 extends AppCompatActivity {
     TextView textView;
+    private RecyclerView productsRecyclerView;
+    private ProductAdapter productAdapter;
     private List<Product> cartProducts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,15 @@ public class Activity6 extends AppCompatActivity {
                 Log.d("Activity6", "Producto: " + product.getName());
             }
         }
+
+        // Configurar el RecyclerView
+        productsRecyclerView = findViewById(R.id.productsRecyclerView);
+        productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
+
+        // Configurar el adaptador con los productos del carrito
+        productAdapter = new ProductAdapter(cartProducts);
+        productsRecyclerView.setAdapter(productAdapter);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

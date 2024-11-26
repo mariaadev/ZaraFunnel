@@ -14,6 +14,7 @@
         <item name="itemBackground">@android:color/transparent</item>
         <item name="itemIconTint">@null</item>
         <item name="itemTextColor">@color/cardview_dark_background</item>
+
     </style>
 
     <style name="BottomSheetStyle" parent="Theme.Design.Light.BottomSheetDialog">
@@ -27,4 +28,8 @@
         <item name="android:textColor">@android:color/black</item>
 
     </style>
+
+
+
+
 </resources>

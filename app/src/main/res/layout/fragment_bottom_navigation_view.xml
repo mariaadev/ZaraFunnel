@@ -12,6 +12,7 @@ android:layout_height="wrap_content">
         android:layout_gravity="bottom"
         android:background="@color/background_color"
         app:labelVisibilityMode="unlabeled"
+        app:itemBackground="@drawable/item_menu_background"
         style="@style/BottomNavViewStyle"
         app:menu="@menu/bottom_nav_menu" />
 

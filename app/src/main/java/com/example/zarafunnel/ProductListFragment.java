@@ -31,12 +31,12 @@ public class ProductListFragment extends Fragment {
 
         // Lista de productos
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("JEANS TRF WIDE LEG", "29,95 EUR", R.drawable.model3_image4, ""));
-        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model6_image4,""));
-        productList.add(new Product("CAMISETA ALGODÓN", "9,95 EUR", R.drawable.model_image4,""));
-        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model5_image4,""));
-        productList.add(new Product("CAMISETA RIB EFFECT", "9,95 EUR", R.drawable.model4_image4, ""));
-        productList.add(new Product("CAMISETA ALGODÓN", "9,95 EUR", R.drawable.model3_image4, ""));
+        productList.add(new Product("JEANS TRF WIDE LEG TIRO MEDIO", "29,95 EUR", R.drawable.model3_image4, ""));
+        productList.add(new Product("CAMISETA RIB EFECTO LAVADO", "9,95 EUR", R.drawable.model6_image4,""));
+        productList.add(new Product("CAMISETA ALGODÓN MODAL MANGA LARGA", "9,95 EUR", R.drawable.model_image4,""));
+        productList.add(new Product("CAMISETA RIB EFECTO LAVADO", "9,95 EUR", R.drawable.model5_image4,""));
+        productList.add(new Product("CAMISETA RIB EFECTO LAVADO", "9,95 EUR", R.drawable.model4_image4, ""));
+        productList.add(new Product("CAMISETA ALGODÓN MODAL MANGA LARGA", "9,95 EUR", R.drawable.model3_image4, ""));
 
         // Verifica si el contexto es adecuado para el listener
         if (getActivity() instanceof OnProductClickListener) {
