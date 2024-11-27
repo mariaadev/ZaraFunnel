@@ -102,19 +102,19 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
 
     private void updateCartView() {
         if (cartProducts.isEmpty()) {
-            // Mostrar el mensaje y el ícono de la cesta vacía
+            //Mostrar el mensaje y el ícono de la cesta vacía
             emptyCartMessage.setVisibility(View.VISIBLE);
             emptyCartCaption.setVisibility(View.VISIBLE);
             emptyCartIcon.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE); // Ocultar el RecyclerView si está vacío
-            btn_buy.setVisibility(View.GONE); // Ocultar el botón de finalizar compra
+            recyclerView.setVisibility(View.GONE); //Ocultar el RecyclerView si está vacío
+            btn_buy.setVisibility(View.GONE); //Ocultar el botón de finalizar compra
         } else {
-            // Mostrar el RecyclerView y el botón si hay productos
+            //Mostrar el RecyclerView y el botón si hay productos
             emptyCartMessage.setVisibility(View.GONE);
             emptyCartIcon.setVisibility(View.GONE);
             emptyCartCaption.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE); // Mostrar el RecyclerView
-            btn_buy.setVisibility(View.VISIBLE); // Mostrar el botón de finalizar compra
+            recyclerView.setVisibility(View.VISIBLE); //Mostrar el RecyclerView
+            btn_buy.setVisibility(View.VISIBLE); //Mostrar el botón de finalizar compra
         }
     }
     @Override

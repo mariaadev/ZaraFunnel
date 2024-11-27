@@ -2,6 +2,7 @@ package com.example.zarafunnel;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class SizeSelectionBottomSheetFragment extends BottomSheetDialogFragment {
@@ -94,9 +96,13 @@ public class SizeSelectionBottomSheetFragment extends BottomSheetDialogFragment 
     }
 
     private void selectButton(Button selectedButton) {
-        sizeSmallButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
-        sizeMediumButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
-        sizeLargeButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.black)));
-        selectedButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity(), android.R.color.holo_blue_light)));
+        Typeface customRegular = ResourcesCompat.getFont(getActivity(), R.font.helvetica_neue_light);
+        Typeface customBold = ResourcesCompat.getFont(getActivity(), R.font.helvetica_neue_medium);
+
+        sizeSmallButton.setTypeface(customRegular);
+        sizeMediumButton.setTypeface(customRegular);
+        sizeLargeButton.setTypeface(customRegular);
+
+        selectedButton.setTypeface(customBold);
     }
 }
