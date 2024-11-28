@@ -11,8 +11,36 @@
     <LinearLayout
         android:id="@+id/containerButtonsCart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/close" />
+
+            <ImageButton
+                android:id="@+id/messageButton"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="340dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                app:backgroundTint="@null"
+                android:background="@color/background_color"
+                app:srcCompat="@drawable/baseline_chat_bubble_outline_24" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/containerButtonCartFav"
@@ -24,26 +52,28 @@
                 android:id="@+id/cartButton"
                 style="@style/CustomButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/helvetica_neue_light"
-                android:text="CESTA"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:text="CESTA (1)"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="13sp"
                 app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/favButton"
                 style="@style/CustomButtonStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/helvetica_neue_light"
                 android:text="FAVORITOS"
                 android:textColor="@android:color/black"
-                android:textSize="14sp"
+                android:textSize="13sp"
+                app:icon="@drawable/marcos"
+                app:iconTint="@android:color/black"
+                app:iconSize="12dp"
+                app:iconGravity="textEnd"
                 app:backgroundTint="@null" />
         </LinearLayout>
 
@@ -51,6 +81,8 @@
             android:id="@+id/containerButtonRegalo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:backgroundTint="@null"
+            style="@style/CustomButtonStyle"
             android:orientation="horizontal">
 
             <TextView
@@ -58,18 +90,21 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="5"
-                android:textSize="13sp"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="¿QUIERES TU PEDIDO PARA REGALO?" />
+                android:gravity="center_vertical"
+                android:letterSpacing="0.05"
+                android:paddingLeft="20dp"
+                android:text="¿QUIERES TU PEDIDO PARA REGALO?"
+                android:textSize="12sp" />
 
             <ImageButton
                 android:id="@+id/buttonArrow"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
+                app:backgroundTint="@null"
+                android:background="@null"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_back_arrow" />
+                app:srcCompat="@drawable/right_arrow" />
         </LinearLayout>
     </LinearLayout>
 
@@ -83,7 +118,7 @@
         app:layout_constraintBottom_toTopOf="@id/btn_buy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerButtonRegalo">
+        app:layout_constraintTop_toBottomOf="@id/containerButtonsCart">
 
         <ImageView
             android:id="@+id/emptyCartIcon"
@@ -121,7 +156,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="585dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@id/btn_buy"
         app:layout_constraintEnd_toEndOf="parent"
