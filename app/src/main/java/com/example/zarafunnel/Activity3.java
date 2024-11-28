@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,7 +35,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
     private TextView emptyCartMessage;
     private TextView emptyCartCaption;
     private ImageView emptyCartIcon;
-
+    private ImageButton closeButton;
     private static final String TAG = "Activity3";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,9 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
             // Iniciar la actividad de pago
             startActivity(paymentIntent);
         });
+
+        closeButton = findViewById(R.id.closeButton);
+        closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), MainActivity.class)));
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

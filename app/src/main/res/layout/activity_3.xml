@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@id/containerCart"
         android:orientation="vertical">
 
         <LinearLayout
@@ -25,8 +26,9 @@
                 android:id="@+id/closeButton"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
+                android:contentDescription="Cerrar"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
                 app:srcCompat="@drawable/close" />
 
@@ -34,8 +36,8 @@
                 android:id="@+id/messageButton"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="340dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
                 app:backgroundTint="@null"
                 android:background="@color/background_color"
@@ -156,12 +158,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
-        android:layout_height="585dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/btn_buy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerCart" />
+        app:layout_constraintTop_toBottomOf="@id/containerButtonsCart" />
 
     <Button
         android:id="@+id/btn_buy"
