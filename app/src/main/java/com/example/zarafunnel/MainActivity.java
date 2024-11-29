@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         });
     }
 
+
+
     @Override
     public void onNavigationItemSelected(int itemId) {
         if (itemId == R.id.home) {

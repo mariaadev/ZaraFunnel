@@ -25,11 +25,11 @@ public class Activity9 extends AppCompatActivity {
         //Recuperar los datos del Intent
         Intent intent = getIntent();
         loadIntentData(intent);
-
         //Configurar el botón de continuar a la tienda
         Button continueShoppingButton = findViewById(R.id.continueShoppingButton);
         continueShoppingButton.setOnClickListener(v -> {
             Intent intentMainActivity = new Intent(Activity9.this, MainActivity.class);
+            ShoppingCart.clearCart();
             startActivity(intentMainActivity);
             finish();
         });

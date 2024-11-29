@@ -116,6 +116,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         });
     }
 
+
     private void updateCartView() {
         if (cartProducts.isEmpty()) {
             //Mostrar el mensaje y el ícono de la cesta vacía
