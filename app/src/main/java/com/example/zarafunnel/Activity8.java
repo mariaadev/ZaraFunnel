@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -37,16 +38,25 @@ public class Activity8 extends AppCompatActivity {
         loadIntentData(intent);
 
         productQuantityTextView = findViewById(R.id.productQuantity);
-        // Configurar el RecyclerView
+        //Configurar el RecyclerView
         productsRecyclerView = findViewById(R.id.cartRecyclerView);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
 
-        // Configurar el adaptador con los productos del carrito
+        //Configurar el adaptador con los productos del carrito
         productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
         productsRecyclerView.setAdapter(productAdapter);
 
         productQuantityTextView = findViewById(R.id.productQuantity);
         updateProductQuantity();
+
+        //Para poder ver el botón de autorizar pago
+        ScrollView scrollView = findViewById(R.id.scrollView);
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
 
 
         TextView addressName = findViewById(R.id.addressName);
