@@ -16,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.io.Serializable;
 import java.util.List;
@@ -35,6 +36,13 @@ public class Activity5 extends AppCompatActivity {
         EdgeToEdge.enable(this);
 
         setContentView(R.layout.activity_5);
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
+            transaction.commit();
+        }
+
         // Inicializar las vistas
         inputName = findViewById(R.id.inputName);
         inputLastName = findViewById(R.id.inputLastName);

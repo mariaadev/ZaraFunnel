@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.io.Serializable;
 import java.util.List;
@@ -30,7 +31,13 @@ public class Activity4 extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_4);
 
-        // Recuperar la lista de productos del Intent
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
+            transaction.commit();
+        }
+
+        //Recuperar la lista de productos del Intent
         Intent intent = getIntent();
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
 

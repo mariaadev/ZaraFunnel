@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState == null) {
+            // Si no hay estado guardado, agrega el fragmento
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
+            transaction.commit();
+        }
 
         // Obtener focus para que se vea el cursor al entrar a la Activity
         EditText searchBar = findViewById(R.id.searchBar);

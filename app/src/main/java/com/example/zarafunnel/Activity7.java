@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.content.Intent;
 
 import java.io.Serializable;
@@ -23,6 +25,12 @@ public class Activity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_7);
+
+        if (savedInstanceState == null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
+            transaction.commit();
+        }
 
         // Recuperar los datos del Intent anterior
         Intent intent = getIntent();
