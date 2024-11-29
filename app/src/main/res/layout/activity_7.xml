@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".Activity7">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@null"
+        android:contentDescription="Botón Atrás"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textArticles"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="ELIGE UN MÉTODO DE PAGO"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+    <LinearLayout
+        android:id="@+id/containerTotal"
+        style="@style/CustomButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/shippingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:text="TOTAL" />
+
+        <TextView
+            android:id="@+id/shippingFinalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/helvetica_neue_medium"
+            android:gravity="end"
+            android:text="13,90 EUR" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerOptionsPayment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textArticles"
+        tools:layout_editor_absoluteX="1dp">
+
+
+        <LinearLayout
+            android:id="@+id/optionsPayment"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/visaOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/visa"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="15dp"
+                android:text="VISA"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+
+            <Button
+                android:id="@+id/mastercardOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/mastercard"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="20dp"
+                android:text="MASTERCARD"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="5dp" />
+
+
+            <Button
+                android:id="@+id/americanExpressOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/american_express"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingTop="20dp"
+                android:paddingRight="4dp"
+                android:text="AMERICAN EXPRESS"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/optionsPayment2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bizumOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/bizum"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="15dp"
+                android:text="BIZUM"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+
+            <Button
+                android:id="@+id/paypalOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/paypal"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="20dp"
+                android:text="PAYPAL"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="5dp" />
+
+
+            <Button
+                android:id="@+id/affinityOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/affinitycard"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingTop="20dp"
+                android:paddingRight="4dp"
+                android:text="AFFINITY"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/optionsPayment3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/giftCardOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/giftcard"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="15dp"
+                android:text="TARJETA REGALO"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+
+            <Button
+                android:id="@+id/applePayOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/applepay"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="20dp"
+                android:text="APPLE PAY"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="5dp" />
+
+
+            <Button
+                android:id="@+id/blankOption"
+                style="@style/CustomButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_margin="0dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/helvetica_neue_light"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingLeft="4dp"
+                android:paddingTop="20dp"
+                android:paddingRight="4dp"
+                android:text=""
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="0dp"
+                app:iconPadding="-10dp"
+                app:iconSize="10dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

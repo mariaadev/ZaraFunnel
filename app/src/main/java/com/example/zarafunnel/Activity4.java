@@ -22,6 +22,8 @@ public class Activity4 extends AppCompatActivity {
     private List<Product> cartProducts;
     private ImageButton closeButton;
     private Button buttonGuest;
+    private Button buttonRegister;
+    private Button buttonLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,21 @@ public class Activity4 extends AppCompatActivity {
             intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
             startActivity(intentToActivity5);
         });
+
+        buttonLogin = findViewById(R.id.buttonLogin);
+        buttonLogin.setOnClickListener(v -> {
+            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
+            startActivity(intentToActivity5);
+        });
+
+        buttonRegister= findViewById(R.id.buttonRegister);
+        buttonRegister.setOnClickListener(v -> {
+            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
+            startActivity(intentToActivity5);
+        });
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
