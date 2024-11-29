@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Activity8 extends AppCompatActivity {
-    private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, paymentMethod;
+    private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, paymentMethod,province;
     private boolean isBusiness;
     private List<Product> cartProducts;
     private Button authorizePaymentButton;
@@ -69,7 +69,7 @@ public class Activity8 extends AppCompatActivity {
         //Formatear dirección
         String fullAddress = address + "\n" +
                 (address2.isEmpty() ? "" : address2 + "\n") +
-                postalCode + ", " + region + "\n" +
+                postalCode + ", " + province + ", " + region + "\n" +
                 phone;
 
         addressName.setText(name + " " + lastName);
@@ -121,6 +121,7 @@ public class Activity8 extends AppCompatActivity {
                 break;
         }
 
+        findViewById(R.id.backButton).setOnClickListener(view -> finish());
 
         authorizePaymentButton = findViewById(R.id.authorizePaymentButton);
         authorizePaymentButton.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +151,7 @@ public class Activity8 extends AppCompatActivity {
         shippingDate = intent.getStringExtra("shippingDate");
         shippingPrice = intent.getStringExtra("shippingPrice");
         paymentMethod = intent.getStringExtra("paymentMethod");
+        province = intent.getStringExtra("province");
     }
     private void navigateToActivity9() {
         Intent intentToActivity9 = new Intent(Activity8.this, Activity9.class);
@@ -167,7 +169,7 @@ public class Activity8 extends AppCompatActivity {
         intentToActivity9.putExtra("cartItems", (Serializable) cartProducts);
         intentToActivity9.putExtra("shippingDate", shippingDate);
         intentToActivity9.putExtra("shippingPrice", shippingPrice);
-
+        intentToActivity9.putExtra("province", province);
         //Iniciar la actividad 9
         startActivity(intentToActivity9);
     }

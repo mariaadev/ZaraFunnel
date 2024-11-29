@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Activity7 extends AppCompatActivity {
 
-    private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, shippingMethod;
+    private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, shippingMethod, province;
     private boolean isBusiness;
     private List<Product> cartProducts;
 
@@ -60,7 +60,7 @@ public class Activity7 extends AppCompatActivity {
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
         shippingDate = intent.getStringExtra("shippingDate");
         shippingPrice = intent.getStringExtra("shippingPrice");
-
+        province = intent.getStringExtra("province");
     }
     private void setupClickListener(int buttonId, String paymentMethod) {
         findViewById(buttonId).setOnClickListener(view -> navigateToActivity8(paymentMethod));
@@ -83,6 +83,7 @@ public class Activity7 extends AppCompatActivity {
         intentToActivity8.putExtra("shippingDate", shippingDate);
         intentToActivity8.putExtra("shippingPrice", shippingPrice);
         intentToActivity8.putExtra("shippingMethod", shippingMethod);
+        intentToActivity8.putExtra("province", province);
         // Iniciar la actividad 8
         startActivity(intentToActivity8);
     }

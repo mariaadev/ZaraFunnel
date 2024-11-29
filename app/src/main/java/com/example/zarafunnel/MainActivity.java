@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         if (itemId == R.id.home) {
             //Activity actual
         } else if (itemId == R.id.profile) {
-            startActivity(new Intent(this, Activity2.class));
+            startActivity(new Intent(this, Activity4.class));
             overridePendingTransition(0, 0); // Animación de transición
             finish();
 

@@ -1,15 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
     tools:context=".Activity9">
 
+    <ImageView
+        android:id="@+id/zaraLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:contentDescription="Logo Zara"
+        android:src="@drawable/zara_icon_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/fullNameTextView"
+        android:id="@+id/orderConfirmationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/helvetica_neue_bold"
+        android:gravity="center"
+        android:text="¡Pedido realizado con éxito!"
+
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/emailDetailsText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zaraLogo" />
+
+    <TextView
+        android:id="@+id/emailDetailsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:text="Los detalles de tu pedido han sido enviados a tu correo electrónico."
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/orderConfirmationText" />
+
+    <TextView
+        android:id="@+id/shipmentFollowUpText"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginStart="10dp"
+        android:lineSpacingMultiplier="1.3"
+        android:text="En cuanto tu pedido salga del almacén, recibirás un correo para seguir su estado."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/continueShoppingButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailDetailsText" />
+
+    <Button
+        android:id="@+id/continueShoppingButton"
+        style="@style/CustomButtonStyle"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/helvetica_neue_light"
+        android:text="Volver a la tienda"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:backgroundTint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shipmentFollowUpText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

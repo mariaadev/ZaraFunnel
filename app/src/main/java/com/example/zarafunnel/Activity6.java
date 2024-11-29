@@ -48,21 +48,27 @@ public class Activity6 extends AppCompatActivity {
         String postalCode = intent.getStringExtra("postalCode");
         String phone = intent.getStringExtra("phone");
         String region = intent.getStringExtra("region");
+        String province = getIntent().getStringExtra("province");
+
         boolean isBusiness = intent.getBooleanExtra("isBusiness", false);
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
 
         if (cartProducts != null) {
             for (Product product : cartProducts) {
-                // Aquí puedes mostrar los productos o hacer lo que necesites con ellos
                 Log.d("Activity6", "Producto: " + product.getName());
             }
         }
 
-        // Configurar el RecyclerView
+        addressTextView = findViewById(R.id.addressTextView);
+        if (address != null) {
+            addressTextView.setText(address);
+        }
+
+        //Configurar el RecyclerView
         productsRecyclerView = findViewById(R.id.productsRecyclerView);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
 
-        // Configurar el adaptador con los productos del carrito
+        //Configurar el adaptador con los productos del carrito
         productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
         productsRecyclerView.setAdapter(productAdapter);
 
@@ -72,7 +78,7 @@ public class Activity6 extends AppCompatActivity {
         RadioButton optionFriday = findViewById(R.id.optionFriday);
         RadioButton optionTuesday = findViewById(R.id.optionTuesday);
 
-// Configura los listeners para manejar las selecciones de los radio buttons
+    //Configura los listeners para manejar las selecciones de los radio buttons
         optionFriday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,6 +124,7 @@ public class Activity6 extends AppCompatActivity {
                 intentToActivity7.putExtra("phone", phone);
                 intentToActivity7.putExtra("region", region);
                 intentToActivity7.putExtra("isBusiness", isBusiness);
+                intentToActivity7.putExtra("province", province);
                 intentToActivity7.putExtra("cartItems", (Serializable) cartProducts);
                 intentToActivity7.putExtra("shippingDate", selectedDate); //Fecha seleccionada
                 intentToActivity7.putExtra("shippingPrice", selectedPrice); //Precio de envío seleccionado

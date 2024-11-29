@@ -70,7 +70,7 @@ public class BottomNavigationViewFragment extends Fragment {
         // Seleccionar el ítem correspondiente según la actividad actual
         if (getActivity() instanceof MainActivity) {
             bottomNavigationView.setSelectedItemId(R.id.home);  // Home como seleccionado por defecto
-        } else if (getActivity() instanceof Activity2) {
+        } else if (getActivity() instanceof Activity4) {
             bottomNavigationView.setSelectedItemId(R.id.profile);  // Profile como seleccionado
         } else if (getActivity() instanceof Activity3) {
             bottomNavigationView.setSelectedItemId(R.id.bag);  // Bag como seleccionado

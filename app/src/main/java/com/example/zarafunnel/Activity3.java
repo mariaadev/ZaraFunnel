@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.view.View;
 
+
 public class Activity3 extends AppCompatActivity implements BottomNavigationViewFragment.NavigationListener {
 
     private RecyclerView cartRecyclerView;
@@ -36,6 +37,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
     private TextView emptyCartCaption;
     private ImageView emptyCartIcon;
     private ImageButton closeButton;
+    private Button cartButton;
     private static final String TAG = "Activity3";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         emptyCartCaption = findViewById(R.id.emptyCartCaption);
         emptyCartIcon = findViewById(R.id.emptyCartIcon);
         btn_buy = findViewById(R.id.btn_buy);
+
 
         // Cargar el fragmento con el BottomNavigationView
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -65,6 +68,8 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         }
         cartRecyclerView = findViewById(R.id.recyclerViewCart);
 
+
+
         // Obtener los productos del carrito
         cartProducts = ShoppingCart.getCart(); // Esto obtiene los productos que has agregado
         Log.d(TAG, "Productos obtenidos del carrito: " + (cartProducts != null ? cartProducts.size() : "null"));
@@ -74,15 +79,22 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
             cartProducts = new ArrayList<>();
         }
 
-        // Configurar el adaptador
+
+        //Configurar el adaptador
         cartAdapter = new CartAdapter(this, cartProducts);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);
 
-        // Verificar si el carrito está vacío y mostrar el mensaje correspondiente
+
+        cartButton = findViewById(R.id.cartButton);
+
+        if (cartButton != null) {
+            String cartText = "Carrito (" + cartProducts.size() + ")";
+            cartButton.setText(cartText);
+        }
         updateCartView();
 
-        // Configurar el botón de finalizar compra
+        //Configurar el botón de finalizar compra
         btn_buy.setOnClickListener(v -> {
             // Crear un nuevo Intent para pasar a la pantalla de pago
             Intent paymentIntent = new Intent(Activity3.this, Activity4.class);
@@ -128,7 +140,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
             overridePendingTransition(0, 0);
             finish();
         } else if (itemId == R.id.profile) {
-            startActivity(new Intent(this, Activity2.class));
+            startActivity(new Intent(this, Activity4.class));
             overridePendingTransition(0, 0);
             finish();
         } else if (itemId == R.id.bag) {

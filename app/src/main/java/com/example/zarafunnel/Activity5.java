@@ -19,6 +19,8 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import java.io.Serializable;
 import java.util.List;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 
 public class Activity5 extends AppCompatActivity {
 
@@ -56,6 +58,16 @@ public class Activity5 extends AppCompatActivity {
             Log.d("Activity5", "No se recibieron productos.");
         }
 
+        // Obtener el AutoCompleteTextView
+        AutoCompleteTextView menuDropdown = findViewById(R.id.menu_dropdown);
+
+        // Obtener el array de provincias desde los recursos
+        String[] provinces = getResources().getStringArray(R.array.provinces);
+
+        // Crear un ArrayAdapter y asociarlo al AutoCompleteTextView
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, provinces);
+        menuDropdown.setAdapter(adapter);
+
         backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity4.class)));
 
         switchCompat =  findViewById(R.id.customThumbSmallSwitch);
@@ -89,7 +101,7 @@ public class Activity5 extends AppCompatActivity {
             String phone = inputPhone.getText().toString();
             String region = inputRegion.getText().toString();
             boolean isBusiness = switchCompat.isChecked();
-
+            String province = menuDropdown.getText().toString();
             // Crear el Intent para pasar los datos a la siguiente actividad
             Intent intentToActivity6 = new Intent(Activity5.this, Activity6.class);
             intentToActivity6.putExtra("name", name);
@@ -102,6 +114,7 @@ public class Activity5 extends AppCompatActivity {
             intentToActivity6.putExtra("region", region);
             intentToActivity6.putExtra("isBusiness", isBusiness);
             intentToActivity6.putExtra("cartItems", (Serializable) cartProducts);
+            intentToActivity6.putExtra("province", province);
             // Iniciar la siguiente actividad
             startActivity(intentToActivity6);
         });
