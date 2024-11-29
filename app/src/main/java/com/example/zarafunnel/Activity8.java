@@ -12,8 +12,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -40,6 +42,14 @@ public class Activity8 extends AppCompatActivity {
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
+
 
         Intent intent = getIntent();
         loadIntentData(intent);

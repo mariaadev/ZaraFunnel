@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -51,6 +52,14 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
+
 
         //Inicializar
         recyclerView = findViewById(R.id.recyclerViewCart);

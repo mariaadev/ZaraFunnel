@@ -16,10 +16,7 @@ public class FragmentImageButton extends Fragment {
         View view = inflater.inflate(R.layout.fragment_image_button, container, false);
 
         ImageButton imageButton = view.findViewById(R.id.myImageButton);
-
-        imageButton.setOnClickListener(v -> {
-
-        });
+        imageButton.setClickable(false);
 
         return view;
     }

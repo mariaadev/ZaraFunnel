@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.util.Log;
+import android.widget.FrameLayout;
 
 import java.io.Serializable;
 import java.util.List;
@@ -31,6 +33,14 @@ public class Activity7 extends AppCompatActivity {
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
+
 
         // Recuperar los datos del Intent anterior
         Intent intent = getIntent();

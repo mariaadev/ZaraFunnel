@@ -16,6 +16,7 @@ import java.util.List;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import java.util.ArrayList;
 
@@ -36,6 +37,14 @@ public class Activity4 extends AppCompatActivity {
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
+
 
         //Recuperar la lista de productos del Intent
         Intent intent = getIntent();

@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.util.Log;
+import android.widget.FrameLayout;
+
 public class MainActivity extends AppCompatActivity implements OnProductClickListener, BottomNavigationViewFragment.NavigationListener {
     private static final String TAG = "MainActivity";
     @Override
@@ -26,6 +28,14 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Log.d("FrameLayoutClick", "FrameLayout clicked!");
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
 
         // Obtener focus para que se vea el cursor al entrar a la Activity
         EditText searchBar = findViewById(R.id.searchBar);

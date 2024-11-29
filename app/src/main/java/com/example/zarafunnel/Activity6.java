@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.RadioButton;
@@ -44,6 +45,13 @@ public class Activity6 extends AppCompatActivity {
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
 
         // Recuperar los datos pasados en el Intent
         Intent intent = getIntent();

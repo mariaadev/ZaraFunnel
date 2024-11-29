@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
@@ -42,6 +43,13 @@ public class Activity5 extends AppCompatActivity {
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
         }
+        FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
+
+        frameLayout.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        });
+
 
         // Inicializar las vistas
         inputName = findViewById(R.id.inputName);
