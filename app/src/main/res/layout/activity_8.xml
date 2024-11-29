@@ -12,32 +12,27 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="16dp">
 
-            <!-- Fecha e información del producto -->
+           >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <!-- Imagen del producto -->
-                <ImageView
-                    android:id="@+id/productImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/model2_image1" />
 
-                <!-- Detalles del producto -->
+
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:orientation="vertical">
@@ -48,31 +43,43 @@
                         android:layout_height="wrap_content"
                         android:text="VIERNES 15 DE NOVIEMBRE"
                         android:textColor="@android:color/black"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:textSize="13sp"
+                        android:fontFamily="@font/helvetica_neue_light"
+                         />
 
                     <TextView
                         android:id="@+id/productQuantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1 artículo"
-                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/helvetica_neue_light"
+                        android:textColor="@android:color/black"
                         android:textSize="12sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/cartRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                       />
+
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Línea divisoria -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginVertical="16dp"
-                android:background="@android:color/darker_gray" />
 
-            <!-- Información de envío -->
+                android:background="@android:color/black" />
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:padding="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -107,18 +114,19 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- Línea divisoria -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="16dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/black" />
 
-            <!-- Dirección de envío -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:padding="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -143,19 +151,19 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <!-- Línea divisoria -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="16dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/black" />
 
-            <!-- Métodos de pago -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_margin="5dp"
+                android:padding="16dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -176,17 +184,18 @@
                     />
             </LinearLayout>
 
-            <!-- Línea divisoria -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="16dp"
-                android:background="@android:color/darker_gray" />
+                android:background="@android:color/black" />
 
-            <!-- Total -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="16dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -194,11 +203,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TOTAL"
-                    android:fontFamily="@font/helvetica_neue_light"
-
+                    android:fontFamily="@font/helvetica_neue_medium"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    />
 
                 <TextView
                     android:id="@+id/totalAmount"
@@ -207,11 +215,12 @@
                     android:text="13,90 EUR"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
-                    android:fontFamily="@font/helvetica_neue_light"
-                    android:textStyle="bold" />
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:fontFamily="@font/helvetica_neue_medium"
+                     />
             </LinearLayout>
 
-            <!-- Botón de pagar -->
             <Button
                 android:id="@+id/authorizePaymentButton"
                 style="@style/CustomButtonStyle"
@@ -221,6 +230,8 @@
                 android:fontFamily="@font/helvetica_neue_light"
                 android:text="AUTORIZAR EL PAGO"
                 android:textAllCaps="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 app:backgroundTint="@android:color/black" />

@@ -8,16 +8,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.Serializable;
 import java.util.List;
 
 public class Activity8 extends AppCompatActivity {
     private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, paymentMethod;
     private boolean isBusiness;
     private List<Product> cartProducts;
-
+    private Button authorizePaymentButton;
+    private TextView productQuantityTextView;
+    private RecyclerView productsRecyclerView;
+    private ProductAdapter productAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +35,19 @@ public class Activity8 extends AppCompatActivity {
 
         Intent intent = getIntent();
         loadIntentData(intent);
+
+        productQuantityTextView = findViewById(R.id.productQuantity);
+        // Configurar el RecyclerView
+        productsRecyclerView = findViewById(R.id.cartRecyclerView);
+        productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
+
+        // Configurar el adaptador con los productos del carrito
+        productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
+        productsRecyclerView.setAdapter(productAdapter);
+
+        productQuantityTextView = findViewById(R.id.productQuantity);
+        updateProductQuantity();
+
 
         TextView addressName = findViewById(R.id.addressName);
         TextView addressDetails = findViewById(R.id.addressDetails);
@@ -89,6 +111,14 @@ public class Activity8 extends AppCompatActivity {
                 break;
         }
 
+
+        authorizePaymentButton = findViewById(R.id.authorizePaymentButton);
+        authorizePaymentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateToActivity9();
+            }
+        });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -111,4 +141,34 @@ public class Activity8 extends AppCompatActivity {
         shippingPrice = intent.getStringExtra("shippingPrice");
         paymentMethod = intent.getStringExtra("paymentMethod");
     }
+    private void navigateToActivity9() {
+        Intent intentToActivity9 = new Intent(Activity8.this, Activity9.class);
+
+        intentToActivity9.putExtra("paymentMethod", paymentMethod);
+        intentToActivity9.putExtra("name", name);
+        intentToActivity9.putExtra("lastName", lastName);
+        intentToActivity9.putExtra("email", email);
+        intentToActivity9.putExtra("address", address);
+        intentToActivity9.putExtra("address2", address2);
+        intentToActivity9.putExtra("postalCode", postalCode);
+        intentToActivity9.putExtra("phone", phone);
+        intentToActivity9.putExtra("region", region);
+        intentToActivity9.putExtra("isBusiness", isBusiness);
+        intentToActivity9.putExtra("cartItems", (Serializable) cartProducts);
+        intentToActivity9.putExtra("shippingDate", shippingDate);
+        intentToActivity9.putExtra("shippingPrice", shippingPrice);
+
+        //Iniciar la actividad 9
+        startActivity(intentToActivity9);
+    }
+
+    private void updateProductQuantity() {
+        int totalQuantity = 0;
+        if (cartProducts != null) {
+            totalQuantity = cartProducts.size();
+        }
+        String quantityText = totalQuantity + " artículo" + (totalQuantity != 1 ? "s" : "");
+        productQuantityTextView.setText(quantityText);
+    }
+
 }
