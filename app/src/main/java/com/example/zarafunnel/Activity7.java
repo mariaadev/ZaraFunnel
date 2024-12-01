@@ -42,12 +42,12 @@ public class Activity7 extends AppCompatActivity {
         });
 
 
-        // Recuperar los datos del Intent anterior
+        //Recuperar les dades de l'Intent anterior
         Intent intent = getIntent();
         loadIntentData(intent);
 
 
-        // Configuración de listeners para los botones
+        //Configuració de listeners per cada botó
         setupClickListener(R.id.visaOption, "VISA");
         setupClickListener(R.id.mastercardOption, "MASTERCARD");
         setupClickListener(R.id.americanExpressOption, "AMERICAN EXPRESS");
@@ -86,7 +86,7 @@ public class Activity7 extends AppCompatActivity {
     private void navigateToActivity8(String paymentMethod) {
         Intent intentToActivity8 = new Intent(Activity7.this, Activity8.class);
 
-        // Añadir todos los datos al Intent
+        //Afegir totes les dades al Intent
         intentToActivity8.putExtra("paymentMethod", paymentMethod);
         intentToActivity8.putExtra("name", name);
         intentToActivity8.putExtra("lastName", lastName);
@@ -102,7 +102,7 @@ public class Activity7 extends AppCompatActivity {
         intentToActivity8.putExtra("shippingPrice", shippingPrice);
         intentToActivity8.putExtra("shippingMethod", shippingMethod);
         intentToActivity8.putExtra("province", province);
-        // Iniciar la actividad 8
+
         startActivity(intentToActivity8);
     }
 

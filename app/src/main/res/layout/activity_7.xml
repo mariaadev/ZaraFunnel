@@ -15,7 +15,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:background="@null"
-        android:contentDescription="Botón Atrás"
+        android:contentDescription="@string/bot_n_atr_s"
         android:src="@drawable/ic_back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +28,7 @@
         android:clickable="true"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="5dp"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,7 +41,7 @@
         android:fontFamily="@font/helvetica_neue_light"
         android:gravity="center_vertical"
         android:paddingLeft="20dp"
-        android:text="ELIGE UN MÉTODO DE PAGO"
+        android:text="@string/elige_un_m_todo_de_pago"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -67,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/helvetica_neue_medium"
-            android:text="TOTAL" />
+            android:text="@string/total" />
 
         <TextView
             android:id="@+id/shippingFinalPrice"
@@ -76,7 +77,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/helvetica_neue_medium"
             android:gravity="end"
-            android:text="13,90 EUR" />
+            android:text="@string/_13_90_eur" />
     </LinearLayout>
 
     <LinearLayout
@@ -110,7 +111,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="15dp"
-                android:text="VISA"
+                android:text="@string/visa"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -130,7 +131,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="20dp"
-                android:text="MASTERCARD"
+                android:text="@string/mastercard"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -153,7 +154,7 @@
                 android:paddingLeft="4dp"
                 android:paddingTop="20dp"
                 android:paddingRight="4dp"
-                android:text="AMERICAN EXPRESS"
+                android:text="@string/american_express"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -185,7 +186,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="15dp"
-                android:text="BIZUM"
+                android:text="@string/bizum"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -205,7 +206,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="20dp"
-                android:text="PAYPAL"
+                android:text="@string/paypal"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -228,7 +229,7 @@
                 android:paddingLeft="4dp"
                 android:paddingTop="20dp"
                 android:paddingRight="4dp"
-                android:text="AFFINITY"
+                android:text="@string/affinity"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -258,7 +259,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="15dp"
-                android:text="TARJETA REGALO"
+                android:text="@string/tarjeta_regalo"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"
@@ -278,7 +279,7 @@
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:paddingTop="20dp"
-                android:text="APPLE PAY"
+                android:text="@string/apple_pay"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null"

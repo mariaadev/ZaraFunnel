@@ -1,6 +1,5 @@
 package com.example.zarafunnel;
 import java.io.Serializable;
-import java.io.Serializable;
 
 public class Product implements Serializable {
     private String name;
@@ -8,7 +7,6 @@ public class Product implements Serializable {
     private int imageResId;
     private String size;
 
-    // Constructor
     public Product(String name, String price, int imageResId, String size) {
         this.name = name;
         this.price = price;
@@ -16,7 +14,6 @@ public class Product implements Serializable {
         this.size = size;
     }
 
-    // Getters y Setters
     public String getName() {
         return name;
     }

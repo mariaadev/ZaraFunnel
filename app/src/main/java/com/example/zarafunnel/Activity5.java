@@ -51,7 +51,7 @@ public class Activity5 extends AppCompatActivity {
         });
 
 
-        // Inicializar las vistas
+        //Inicialitzar els elements de la pàgina
         inputName = findViewById(R.id.inputName);
         inputLastName = findViewById(R.id.inputLastName);
         inputEmail = findViewById(R.id.inputEmail);
@@ -64,40 +64,34 @@ public class Activity5 extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
         backButton = findViewById(R.id.backButton);
 
-        // Recuperar los productos del carrito que se enviaron desde Activity4
+        //Recuperar els productes de la cistella que s'han enviat des de l'Activity4
         Intent intent = getIntent();
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
 
-        if (cartProducts != null) {
-            Log.d("Activity5", "Productos recibidos: " + cartProducts.size());
-        } else {
-            Log.d("Activity5", "No se recibieron productos.");
-        }
 
-        // Obtener el AutoCompleteTextView
         AutoCompleteTextView menuDropdown = findViewById(R.id.menu_dropdown);
 
-        // Obtener el array de provincias desde los recursos
+        //Obtenir l'array de provincies establertes des dels recursos
         String[] provinces = getResources().getStringArray(R.array.provinces);
 
-        // Crear un ArrayAdapter y asociarlo al AutoCompleteTextView
+        //Crear un ArrayAdapter y associar-lo al AutoCompleteTextView
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, provinces);
         menuDropdown.setAdapter(adapter);
 
         backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity4.class)));
 
         switchCompat =  findViewById(R.id.customThumbSmallSwitch);
-        //Si el switch existe
+        //Si el switchCompat existeix
         if (switchCompat != null) {
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        //Activado
+                        //Activat
                         switchCompat.setThumbTintList(ColorStateList.valueOf(getResources().getColor(R.color.thumb_active_color)));
                         switchCompat.setTrackTintList(ColorStateList.valueOf(getResources().getColor(R.color.track_active_color)));
                     } else {
-                        //Desactivado
+                        //Desactivat
                         switchCompat.setThumbTintList(ColorStateList.valueOf(getResources().getColor(R.color.thumb_inactive_color)));
                         switchCompat.setTrackTintList(ColorStateList.valueOf(getResources().getColor(R.color.track_inactive_color)));
                     }
@@ -105,9 +99,8 @@ public class Activity5 extends AppCompatActivity {
             });
         }
 
-        // Establecer el Listener para el botón Guardar
         saveButton.setOnClickListener(v -> {
-            // Obtener los valores de los campos
+            //Obtenir els valors dels camps
             String name = inputName.getText().toString();
             String lastName = inputLastName.getText().toString();
             String email = inputEmail.getText().toString();
@@ -118,7 +111,8 @@ public class Activity5 extends AppCompatActivity {
             String region = inputRegion.getText().toString();
             boolean isBusiness = switchCompat.isChecked();
             String province = menuDropdown.getText().toString();
-            // Crear el Intent para pasar los datos a la siguiente actividad
+
+            //Crear l'intent i passar les dades
             Intent intentToActivity6 = new Intent(Activity5.this, Activity6.class);
             intentToActivity6.putExtra("name", name);
             intentToActivity6.putExtra("lastName", lastName);
@@ -131,7 +125,7 @@ public class Activity5 extends AppCompatActivity {
             intentToActivity6.putExtra("isBusiness", isBusiness);
             intentToActivity6.putExtra("cartItems", (Serializable) cartProducts);
             intentToActivity6.putExtra("province", province);
-            // Iniciar la siguiente actividad
+
             startActivity(intentToActivity6);
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:text="SELECCIONA UNA TALLA"
+        android:text="@string/selecciona_una_talla"
         android:textSize="13sp"
         android:fontFamily="@font/helvetica_neue_light"
         android:textColor="@android:color/black"
@@ -26,7 +26,7 @@
         android:gravity="left"
         android:lineSpacingExtra="5sp"
         android:paddingBottom="16dp"
-        android:text="Si necesitas ayuda, indícanos tus medidas y calcularemos cuál es la talla que más se adapta a ti."
+        android:text="@string/info_size"
         android:textColor="@android:color/black"
         android:textSize="13sp" />
 
@@ -34,7 +34,7 @@
         android:id="@+id/suggestSize"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="RECOMENDADOR DE TALLA"
+        android:text="@string/recomendador_de_talla"
         app:backgroundTint="@null"
         style="@style/CustomButtonStyle"
         android:layout_gravity="center_horizontal"
@@ -60,7 +60,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
-                android:text="S"
+                android:text="@string/s"
                 android:layout_marginEnd="8dp"
                 app:backgroundTint="@null"
                 style="@style/CustomButtonStyle"
@@ -79,7 +79,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
-                android:text="M"
+                android:text="@string/m"
                 android:fontFamily="@font/helvetica_neue_light"
                 app:cornerRadius="0dp" />
 
@@ -94,7 +94,7 @@
                 android:fontFamily="@font/helvetica_neue_light"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="8dp"
-                android:text="L"
+                android:text="@string/l"
                 app:cornerRadius="0dp" />
     </LinearLayout>
 

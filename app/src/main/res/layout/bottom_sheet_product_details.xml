@@ -30,7 +30,7 @@
         android:id="@+id/productName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product name"
+        android:text="@string/nombre_del_producto"
         android:textSize="14sp"
         android:fontFamily="@font/helvetica_neue_light"
         android:textColor="@android:color/black"
@@ -40,7 +40,7 @@
         android:id="@+id/productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product price"
+        android:text="@string/precio_del_producto"
         android:textSize="14sp"
         android:fontFamily="@font/helvetica_neue_light"
         android:textColor="@android:color/black" />
@@ -61,7 +61,7 @@
             android:layout_height="40dp"
             android:fontFamily="@font/helvetica_neue_light"
             android:gravity="center"
-            android:text="AÑADIR"
+            android:text="@string/a_adir"
             app:backgroundTint="@null"
             app:cornerRadius="0dp" />
 

@@ -78,7 +78,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/substract_svgrepo_com"
-                android:text="Botón restar cantidad"
+                android:text="@string/bot_n_restar_cantidad"
                 android:textSize="14sp"
                 app:backgroundTint="@null"
                 app:cornerRadius="0dp" />
@@ -101,7 +101,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/add_svgrepo_com"
-                android:text="Botón sumar cantidad"
+                android:text="@string/bot_n_sumar_cantidad"
                 app:backgroundTint="@null"
                 app:cornerRadius="0dp" />
         </LinearLayout>

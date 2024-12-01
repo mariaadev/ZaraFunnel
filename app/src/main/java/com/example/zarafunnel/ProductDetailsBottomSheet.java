@@ -34,21 +34,20 @@ public class ProductDetailsBottomSheet extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.bottom_sheet_product_details, container, false);
         setStyle(STYLE_NORMAL, R.style.BottomSheetStyle);
 
-        // Recuperamos los datos pasados
+        //Recuperem les dades passades
         if (getArguments() != null) {
             productName = getArguments().getString("productName");
             productPrice = getArguments().getString("productPrice");
             productImageResId = getArguments().getInt("productImageResId");
-            Log.d(TAG, "Datos recibidos en onCreateView - Nombre: " + productName + ", Precio: " + productPrice + ", ID Imagen: " + productImageResId);
         }
 
-        // Configurar el botón de "Agregar al carrito"
+        //Configurar el botó d'afegir a la cistella'
         Button addToCartButton = view.findViewById(R.id.button);
         addToCartButton.setOnClickListener(v -> {
-            // Abrir el BottomSheet de tallas y pasar los datos
+            //Obrir el BottomSheet de talles i passar les dades
             SizeSelectionBottomSheetFragment sizeBottomSheet = SizeSelectionBottomSheetFragment.newInstance(productName, productPrice, productImageResId);
             sizeBottomSheet.show(getParentFragmentManager(), sizeBottomSheet.getTag());
-            dismiss(); // Cerrar este BottomSheet
+            dismiss();
         });
 
         return view;
@@ -57,7 +56,7 @@ public class ProductDetailsBottomSheet extends BottomSheetDialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Hacer que el BottomSheet se expanda completamente
+        //Fer que el BottomSheet s'expandeixi completament
         BottomSheetDialog dialog = (BottomSheetDialog) getDialog();
         if (dialog != null) {
             BottomSheetBehavior<View> behavior = BottomSheetBehavior.from((View) view.getParent());
@@ -66,20 +65,16 @@ public class ProductDetailsBottomSheet extends BottomSheetDialogFragment {
             behavior.setHideable(false);
         }
 
-        // Referenciamos las vistas
         TextView productTitle = view.findViewById(R.id.productName);
         TextView productPriceTextView = view.findViewById(R.id.productPrice);
         ImageView productImageView = view.findViewById(R.id.productImage);
         ImageButton closeButton = view.findViewById(R.id.closeButton);
 
-        // Establecemos los valores a las vistas
+        //Establir valors a la vista
         productTitle.setText(productName);
         productPriceTextView.setText(productPrice);
         productImageView.setImageResource(productImageResId);
 
-        Log.d(TAG, "Datos establecidos en las vistas - Nombre: " + productName + ", Precio: " + productPrice + ", ID Imagen: " + productImageResId);
-
-        // Configuramos el listener para el botón de cierre
         closeButton.setOnClickListener(v -> dismiss());
     }
 }

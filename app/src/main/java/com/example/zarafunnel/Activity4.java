@@ -50,19 +50,12 @@ public class Activity4 extends AppCompatActivity {
         Intent intent = getIntent();
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
 
-        if (cartProducts != null) {
-            //Mostrar la lista en un RecyclerView o mostrar los datos del carrito
-            Log.d("Activity4", "Productos recibidos: " + cartProducts.size());
-        } else {
-            Log.d("Activity4", "No se recibieron productos.");
-        }
-
         closeButton = findViewById(R.id.closeButton);
         closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity3.class)));
 
         buttonGuest = findViewById(R.id.buttonGuest);
         buttonGuest.setOnClickListener(v -> {
-            //Pasar los productos del carrito a la actividad 5
+            //Pasar els productos de la cistella a la actividad 5
             Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
             intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
             startActivity(intentToActivity5);

@@ -14,7 +14,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:background="@null"
-        android:contentDescription="Botón Atrás"
+        android:contentDescription="@string/bot_n_atr_s"
         android:src="@drawable/ic_back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +27,7 @@
         android:layout_marginEnd="30dp"
         android:clickable="true"
         android:layout_marginBottom="5dp"
+        android:focusable="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,7 +56,7 @@
             android:fontFamily="@font/helvetica_neue_medium"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="CASA"
+            android:text="@string/casa"
             android:textSize="10sp"
             android:textStyle="bold"
             app:backgroundTint="@null"
@@ -75,7 +76,7 @@
             android:fontFamily="@font/helvetica_neue_light"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:text="TIENDA DE ZARA"
+            android:text="@string/tienda_de_zara"
             android:textSize="10sp"
             android:textStyle="bold"
             app:backgroundTint="@null"
@@ -100,7 +101,7 @@
             android:paddingTop="20dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:text="PUNTO DE ENTREGA"
+            android:text="@string/punto_de_entrega"
             android:textSize="10sp"
             android:textStyle="bold"
             app:backgroundTint="@null"
@@ -113,7 +114,7 @@
         android:id="@+id/addressTextView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:text="CARRER MOLÍ D'EN RATA 16"
+        android:text="@string/carrer_mol_d_en_rata_10"
         android:textSize="12sp"
         app:backgroundTint="@null"
         android:paddingStart="20dp"
@@ -131,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:fontFamily="@font/helvetica_neue_light"
-        android:text="ARTÍCULOS"
+        android:text="@string/art_culos"
         android:paddingLeft="20dp"
         android:gravity="center_vertical"
         android:textSize="12sp"
@@ -189,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/helvetica_neue_medium"
-                    android:text="VIERNES 15 DE NOVIEMBRE"
+                    android:text="@string/viernes_15_de_noviembre"
                     android:textSize="10sp" />
 
                 <TextView
@@ -198,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/helvetica_neue_light"
                     android:gravity="right"
-                    android:text="3,95 EUR"
+                    android:text="@string/friday_price"
                     android:textSize="10sp" />
 
             </LinearLayout>
@@ -209,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="Envío gratuito a partir de 30 EUR aplica solo a artículos sin descuento"
+                android:text="@string/friday_shippment_msg"
                 android:textSize="12sp"
                 app:lineHeight="20dp" />
 
@@ -243,7 +244,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/helvetica_neue_medium"
-                    android:text="JUEVES 14 DE NOVIEMBRE"
+                    android:text="@string/thursday_shippment"
                     android:textSize="10sp" />
 
                 <TextView
@@ -252,7 +253,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/helvetica_neue_light"
                     android:gravity="right"
-                    android:text="4,95 EUR"
+                    android:text="@string/thursday_price"
                     android:textSize="10sp" />
 
             </LinearLayout>
@@ -263,7 +264,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="Entrega garantizada"
+                android:text="@string/thursday_shippment_msg"
                 android:textSize="12sp" />
 
         </LinearLayout>

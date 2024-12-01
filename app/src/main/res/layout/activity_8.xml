@@ -36,7 +36,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="20dp"
                     android:background="@null"
-                    android:contentDescription="Botón Atrás"
+                    android:contentDescription="@string/bot_n_atr_s"
                     android:src="@drawable/ic_back_arrow"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -49,6 +49,7 @@
                     android:layout_marginEnd="30dp"
                     android:clickable="true"
                     android:layout_marginStart="320dp"
+                    android:focusable="true"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
@@ -73,7 +74,7 @@
                         android:id="@+id/deliveryDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="VIERNES 15 DE NOVIEMBRE"
+                        android:text="@string/viernes_shippment"
                         android:textColor="@android:color/black"
                         android:textSize="13sp"
                         android:fontFamily="@font/helvetica_neue_light"
@@ -83,7 +84,7 @@
                         android:id="@+id/productQuantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1 artículo"
+                        android:text="@string/num_articulo"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/helvetica_neue_light"
                         android:textColor="@android:color/black"
@@ -119,7 +120,7 @@
                     android:fontFamily="@font/helvetica_neue_light"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ENVÍO A DOMICILIO"
+                    android:text="@string/env_o_a_domicilio"
                     android:textColor="@android:color/black"
                     android:textSize="13sp"
                     />
@@ -130,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/helvetica_neue_light"
-                    android:text="Entrega viernes 15 de noviembre"
+                    android:text="@string/entrega_viernes_15_de_noviembre"
                     android:textColor="@android:color/black"
                     android:textSize="12sp" />
 
@@ -141,7 +142,7 @@
                     android:layout_marginTop="20dp"
                     android:lineSpacingMultiplier="1.5"
                     android:minLines="2"
-                    android:text="El envío gratuito a partir de 30 EUR aplica solo a artículos sin descuento."
+                    android:text="@string/info_shippment"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -165,7 +166,7 @@
                     android:id="@+id/addressName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PAULA LOPÉZ"
+                    android:text="@string/example_name"
                     android:fontFamily="@font/helvetica_neue_light"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -178,7 +179,7 @@
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/helvetica_neue_light"
                     android:lineSpacingMultiplier="1.5"
-                    android:text="Carrer Moli d’en rata 16\n08291, Ripollet, BARCELONA\nEspaña\n+34 605852358"
+                    android:text="@string/example_address_info"
                     android:textColor="@android:color/black"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -209,7 +210,7 @@
                     android:id="@+id/paymentMethod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="APPLE PAY"
+                    android:text="@string/apple_pay_upper"
                     android:fontFamily="@font/helvetica_neue_light"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -234,7 +235,7 @@
                     android:id="@+id/totalLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TOTAL"
+                    android:text="@string/total_upper"
                     android:fontFamily="@font/helvetica_neue_medium"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
@@ -244,7 +245,7 @@
                     android:id="@+id/totalAmount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="13,90 EUR"
+                    android:text="@string/total_price"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
                     android:layout_weight="1"
@@ -260,7 +261,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="AUTORIZAR EL PAGO"
+                android:text="@string/autorizar_el_pago"
                 android:textAllCaps="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginLeft="0dp"

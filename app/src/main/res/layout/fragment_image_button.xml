@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_shopping_bag"
-        android:contentDescription="Cesta"
+        android:contentDescription="@string/cesta"
         android:clickable="false"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="20dp"

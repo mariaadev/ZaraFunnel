@@ -26,7 +26,7 @@
                 android:id="@+id/closeButton"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:contentDescription="Cerrar"
+                android:contentDescription="@string/cerrar"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
@@ -68,7 +68,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/helvetica_neue_medium"
-                android:text="CESTA (1)"
+                android:text="@string/cesta_1"
                 android:textColor="@android:color/black"
                 android:textSize="13sp"
                 app:backgroundTint="@null" />
@@ -80,7 +80,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/helvetica_neue_light"
-                android:text="FAVORITOS"
+                android:text="@string/favoritos"
                 android:textColor="@android:color/black"
                 android:textSize="13sp"
                 app:icon="@drawable/marcos"
@@ -107,7 +107,7 @@
                 android:gravity="center_vertical"
                 android:letterSpacing="0.05"
                 android:paddingLeft="20dp"
-                android:text="¿QUIERES TU PEDIDO PARA REGALO?"
+                android:text="@string/quieres_tu_pedido_para_regalo"
                 android:textSize="12sp" />
 
             <ImageButton
@@ -137,7 +137,7 @@
             android:id="@+id/emptyCartIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:contentDescription="Icono cesta vacía"
+            android:contentDescription="@string/icono_cesta_vac_a"
             android:src="@drawable/ic_shopping_bag"
             android:visibility="gone" />
 
@@ -148,7 +148,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/helvetica_neue_light"
             android:gravity="center"
-            android:text="TU CESTA ESTÁ VACIA"
+            android:text="@string/tu_cesta_est_vacia"
             android:textColor="@android:color/black"
             android:textSize="13sp"
             android:visibility="gone" />
@@ -160,7 +160,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/helvetica_neue_light"
             android:gravity="center"
-            android:text="Los artículos que añadas se mostrarán aquí"
+            android:text="@string/los_art_culos_que_a_adas_se_mostrar_n_aqu"
             android:textColor="@android:color/black"
             android:textSize="12sp"
             android:visibility="gone" />
@@ -182,7 +182,7 @@
         android:backgroundTint="@android:color/black"
         android:fontFamily="@font/helvetica_neue_light"
         android:gravity="center"
-        android:text="CONTINUAR"
+        android:text="@string/continuar"
         android:textColor="@android:color/white"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationViewConatiner"

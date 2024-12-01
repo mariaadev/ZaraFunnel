@@ -53,7 +53,7 @@ public class Activity6 extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Recuperar los datos pasados en el Intent
+        //Recuperar les dades passades a l'Intent
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String lastName = intent.getStringExtra("lastName");
@@ -83,7 +83,7 @@ public class Activity6 extends AppCompatActivity {
         productsRecyclerView = findViewById(R.id.productsRecyclerView);
         productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
 
-        //Configurar el adaptador con los productos del carrito
+        //Configurar l'adaptador amb els productos del cistell
         productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
         productsRecyclerView.setAdapter(productAdapter);
 
@@ -93,7 +93,7 @@ public class Activity6 extends AppCompatActivity {
         RadioButton optionFriday = findViewById(R.id.optionFriday);
         RadioButton optionTuesday = findViewById(R.id.optionTuesday);
 
-    //Configura los listeners para manejar las selecciones de los radio buttons
+    //Configura els listeners per gestionar les seleccions dels radio buttons
         optionFriday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +128,7 @@ public class Activity6 extends AppCompatActivity {
                 selectedPrice = "4,95 EUR";
             }
 
+            //Si s'ha seleccionat un element del radiio button, navegar següent activity
             if (selectedDate != null && selectedPrice != null) {
                 Intent intentToActivity7 = new Intent(Activity6.this, Activity7.class);
                 intentToActivity7.putExtra("name", name);
@@ -141,8 +142,8 @@ public class Activity6 extends AppCompatActivity {
                 intentToActivity7.putExtra("isBusiness", isBusiness);
                 intentToActivity7.putExtra("province", province);
                 intentToActivity7.putExtra("cartItems", (Serializable) cartProducts);
-                intentToActivity7.putExtra("shippingDate", selectedDate); //Fecha seleccionada
-                intentToActivity7.putExtra("shippingPrice", selectedPrice); //Precio de envío seleccionado
+                intentToActivity7.putExtra("shippingDate", selectedDate);
+                intentToActivity7.putExtra("shippingPrice", selectedPrice);
 
                 startActivity(intentToActivity7);
             } else {

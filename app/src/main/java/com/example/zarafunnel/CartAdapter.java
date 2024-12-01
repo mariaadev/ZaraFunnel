@@ -31,22 +31,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        Product product = productList.get(position);  // Obtén el producto
+        Product product = productList.get(position);
 
-        holder.productName.setText(product.getName());    // Asignar nombre
-        holder.productPrice.setText(product.getPrice());  // Asignar precio
-        holder.productSize.setText("Talla: " + product.getSize()); // Asignar talla
+        holder.productName.setText(product.getName());
+        holder.productPrice.setText(product.getPrice());
+        holder.productSize.setText("Talla: " + product.getSize());
 
         if (product.getImageResId() != 0) {
-            holder.productImage.setImageResource(product.getImageResId());  // Asignar imagen
+            holder.productImage.setImageResource(product.getImageResId());
         } else {
-            holder.productImage.setImageResource(R.drawable.default_image);  // Imagen por defecto si no existe
+            holder.productImage.setImageResource(R.drawable.default_image);
         }
     }
 
     @Override
     public int getItemCount() {
-        return productList.size(); // Debería devolver el número de productos en la lista
+        return productList.size();
     }
 
     public static class CartViewHolder extends RecyclerView.ViewHolder {

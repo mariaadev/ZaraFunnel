@@ -61,7 +61,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         });
 
 
-        //Inicializar
+        //Inicialitzar
         recyclerView = findViewById(R.id.recyclerViewCart);
         emptyCartMessage = findViewById(R.id.emptyCartMessage);
         emptyCartCaption = findViewById(R.id.emptyCartCaption);
@@ -69,34 +69,32 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         btn_buy = findViewById(R.id.btn_buy);
 
 
-        // Cargar el fragmento con el BottomNavigationView
+        //Carregar el fragment amb el BottomNavigationView
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.bottomNavigationViewConatiner, new BottomNavigationViewFragment())
                 .commit();
 
-        // Obtener los datos del producto
+        //Obtenir les dades del producte
         Intent intent = getIntent();
         Product selectedProduct = (Product) intent.getSerializableExtra("selectedProduct");
         if (selectedProduct != null) {
             Log.d("Activity3", "Producto recibido: " + selectedProduct.toString());
-            // Mostrar el producto en los views correspondientes
         }
         cartRecyclerView = findViewById(R.id.recyclerViewCart);
 
 
 
-        // Obtener los productos del carrito
-        cartProducts = ShoppingCart.getCart(); // Esto obtiene los productos que has agregado
+        //Obtenir els productes de la cistella
+        cartProducts = ShoppingCart.getCart();
         Log.d(TAG, "Productos obtenidos del carrito: " + (cartProducts != null ? cartProducts.size() : "null"));
-        // Verificar si la lista de productos no es null
+        //Verificar que la lista de productes no es null
         if (cartProducts == null) {
-            Log.d(TAG, "La lista de productos está vacía o es null, creando nueva lista");
             cartProducts = new ArrayList<>();
         }
 
 
-        //Configurar el adaptador
+        //Configurar l'adaptador
         cartAdapter = new CartAdapter(this, cartProducts);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);
@@ -110,15 +108,12 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         }
         updateCartView();
 
-        //Configurar el botón de finalizar compra
+        //Configurar el botó de finalitzar compra
         btn_buy.setOnClickListener(v -> {
-            // Crear un nuevo Intent para pasar a la pantalla de pago
             Intent paymentIntent = new Intent(Activity3.this, Activity4.class);
 
-            // Pasar la lista de productos al siguiente Activity usando putSerializable
+            //Pasar la lista de productes a la següent Activity utilitzant putSerializable
             paymentIntent.putExtra("cartItems", (Serializable) cartProducts);
-
-            // Iniciar la actividad de pago
             startActivity(paymentIntent);
         });
 
@@ -135,19 +130,20 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
 
     private void updateCartView() {
         if (cartProducts.isEmpty()) {
-            //Mostrar el mensaje y el ícono de la cesta vacía
+            //Mostrar el missatge i l'icona de cistella buida
             emptyCartMessage.setVisibility(View.VISIBLE);
             emptyCartCaption.setVisibility(View.VISIBLE);
             emptyCartIcon.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE); //Ocultar el RecyclerView si está vacío
-            btn_buy.setVisibility(View.GONE); //Ocultar el botón de finalizar compra
+            //Ocultar Recycler view i botó de finalitzar compra
+            recyclerView.setVisibility(View.GONE);
+            btn_buy.setVisibility(View.GONE);
         } else {
-            //Mostrar el RecyclerView y el botón si hay productos
+            //Si hi ha productes a la cistella mostrar recycler view
             emptyCartMessage.setVisibility(View.GONE);
             emptyCartIcon.setVisibility(View.GONE);
             emptyCartCaption.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE); //Mostrar el RecyclerView
-            btn_buy.setVisibility(View.VISIBLE); //Mostrar el botón de finalizar compra
+            recyclerView.setVisibility(View.VISIBLE);
+            btn_buy.setVisibility(View.VISIBLE);
         }
     }
     @Override

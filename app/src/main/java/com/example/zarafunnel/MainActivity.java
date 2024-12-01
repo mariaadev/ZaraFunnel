@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            // Si no hay estado guardado, agrega el fragmento
+            //Si no hi ha estat guardat, afegir el fragment
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container_shopping_bag, new FragmentImageButton());
             transaction.commit();
@@ -37,27 +37,26 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
             startActivity(intent);
         });
 
-        // Obtener focus para que se vea el cursor al entrar a la Activity
+        //Obtenir el focus per a que es vegi el cursor al entrar a l'Activity
         EditText searchBar = findViewById(R.id.searchBar);
         searchBar.requestFocus();
 
-        // Cargar el fragmento ProductListFragment
+        //Carregar el fragment ProductListFragment
         if (savedInstanceState == null) {
             ProductListFragment productListFragment = new ProductListFragment();
 
-            // Usar FragmentTransaction para añadir el fragmento al FrameLayout
+            //Utilitzar el FragmentTransaction per afegir el fragment al FrameLayout
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fragmentContainer, productListFragment);
             transaction.commit();
         }
 
-        // Cargar el fragmento con el BottomNavigationView
+        //Carregar el fragment amb el BottomNavigationView
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.bottomNavigationViewConatiner, new BottomNavigationViewFragment())
                 .commit();
 
-        // Configuración de la ventana para el sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -89,17 +88,14 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
 
     @Override
     public void onProductClick(Product product) {
-        Log.d(TAG, "Producto seleccionado: " + product.getName());
-        Log.d(TAG, "Precio del producto: " + product.getPrice());
-        Log.d(TAG, "ID de imagen del producto: " + product.getImageResId());
-        // Crear una nueva instancia del BottomSheet y pasar los datos del producto
+        //Crear una nova instància del BottomSheet i passar les dades del producte
         ProductDetailsBottomSheet bottomSheet = ProductDetailsBottomSheet.newInstance(
                 product.getName(),
                 product.getPrice(),
                 product.getImageResId()
         );
 
-        // Mostrar el BottomSheet
+        //Mostrar el BottomSheet
         bottomSheet.show(getSupportFragmentManager(), "ProductDetailsBottomSheet");
     }
 }

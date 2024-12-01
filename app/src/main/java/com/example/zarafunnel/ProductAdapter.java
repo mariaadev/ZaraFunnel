@@ -16,14 +16,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private List<Product> productList;
     private OnProductClickListener listener;
     private int layoutResId;
-    // Constructor para el adaptador que recibe la lista de productos y el listener
+
+    // Constructor per l'adaptador que rep la lista de productes i el listener
     public ProductAdapter(List<Product> productList, OnProductClickListener listener, int layoutResId) {
         this.productList = productList;
-        this.listener = listener; // Guardamos el listener
+        this.listener = listener;
         this.layoutResId = layoutResId;
     }
 
-    // Constructor para el adaptador que recibe la lista de productos pero sin necesidad de listener
+    //Constructor per l'adaptador sense listener
     public ProductAdapter(List<Product> productList, int layoutResId) {
         this.productList = productList;
         this.listener = null;
@@ -44,10 +45,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         holder.productPrice.setText(product.getPrice());
         holder.productImage.setImageResource(product.getImageResId());
 
-        // Configuramos el listener de clic en el producto
+        //Configuramos el listener de clic en el producte de la llista
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onProductClick(product); // Llamamos al listener cuando se hace clic
+                listener.onProductClick(product);
             }
         });
     }

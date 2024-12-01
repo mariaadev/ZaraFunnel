@@ -22,10 +22,12 @@ public class Activity9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_9);
-        //Recuperar los datos del Intent
+
+        //Recuperar dades de l'ntent
         Intent intent = getIntent();
         loadIntentData(intent);
-        //Configurar el botón de continuar a la tienda
+
+        //Configurar el botó de continuar comprant
         Button continueShoppingButton = findViewById(R.id.continueShoppingButton);
         continueShoppingButton.setOnClickListener(v -> {
             Intent intentMainActivity = new Intent(Activity9.this, MainActivity.class);

@@ -57,16 +57,16 @@ public class Activity8 extends AppCompatActivity {
         productQuantityTextView = findViewById(R.id.productQuantity);
         //Configurar el RecyclerView
         productsRecyclerView = findViewById(R.id.cartRecyclerView);
-        productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));  // Horizontal para mostrar las imágenes en fila
+        productsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        //Configurar el adaptador con los productos del carrito
+        //Configurar  l'adaptador amb els productes del cistell
         productAdapter = new ProductAdapter(cartProducts, R.layout.item_product_small);
         productsRecyclerView.setAdapter(productAdapter);
 
         productQuantityTextView = findViewById(R.id.productQuantity);
         updateProductQuantity();
 
-        //Para poder ver el botón de autorizar pago
+        //Per poder veure el botó d'autoritzar pagament
         ScrollView scrollView = findViewById(R.id.scrollView);
         scrollView.post(new Runnable() {
             @Override
@@ -83,7 +83,6 @@ public class Activity8 extends AppCompatActivity {
         ImageView paymentImage = findViewById(R.id.paymentMethodImage);
         TextView paymentMethodText = findViewById(R.id.paymentMethod);
 
-        //Formatear dirección
         String fullAddress = address + "\n" +
                 (address2.isEmpty() ? "" : address2 + "\n") +
                 postalCode + ", " + province + ", " + region + "\n" +
@@ -92,13 +91,13 @@ public class Activity8 extends AppCompatActivity {
         addressName.setText(name + " " + lastName);
         addressDetails.setText(fullAddress);
 
-        //Mostrar la fecha de entrega y la fecha de envío dependiendo del shippingDate
+        //Mostrar la data d'entrega i la data d'enviament depenen de la data seleccionada anteriorment
         if (shippingDate != null) {
             deliveryDateText.setText(shippingDate.toUpperCase());
             shippingDateText.setText("Entrega " + shippingDate.toLowerCase());
         }
 
-        //Según el método de pago escogido
+        //Segons el mètode de pagament escollit
         switch (paymentMethod) {
             case "VISA":
                 paymentImage.setImageResource(R.drawable.visa);

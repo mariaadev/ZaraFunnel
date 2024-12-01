@@ -18,7 +18,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigationViewFragment extends Fragment {
-    // Configurar el BottomNavigationView
+    //Configurar el BottomNavigationView
     BottomNavigationView bottomNavigationView;
     public interface NavigationListener {
         void onNavigationItemSelected(int itemId);
@@ -28,7 +28,6 @@ public class BottomNavigationViewFragment extends Fragment {
 
 
     public BottomNavigationViewFragment() {
-        // Constructor vacío requerido
     }
 
     @Override
@@ -44,7 +43,7 @@ public class BottomNavigationViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflar el diseño para este fragmento
+        //Inflar el disseny per aquest fragment
         return inflater.inflate(R.layout.fragment_bottom_navigation_view, container, false);
     }
 
@@ -52,13 +51,13 @@ public class BottomNavigationViewFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Configurar el BottomNavigationView
+        //Configurar el BottomNavigationView
         bottomNavigationView = view.findViewById(R.id.bottomNavigationView);
 
-        // Configurar el elemento seleccionado por defecto
+        //Configurar l'element seleccionat per defecto
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        // Configurar listener de navegación
+        //Configurar listener de navegació
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (navigationListener != null) {
                 navigationListener.onNavigationItemSelected(item.getItemId());
@@ -67,13 +66,13 @@ public class BottomNavigationViewFragment extends Fragment {
             return false;
         });
 
-        // Seleccionar el ítem correspondiente según la actividad actual
+        //Seleccionar l'ítem segona l'actividad actual
         if (getActivity() instanceof MainActivity) {
-            bottomNavigationView.setSelectedItemId(R.id.home);  // Home como seleccionado por defecto
+            bottomNavigationView.setSelectedItemId(R.id.home);
         } else if (getActivity() instanceof Activity4) {
-            bottomNavigationView.setSelectedItemId(R.id.profile);  // Profile como seleccionado
+            bottomNavigationView.setSelectedItemId(R.id.profile);
         } else if (getActivity() instanceof Activity3) {
-            bottomNavigationView.setSelectedItemId(R.id.bag);  // Bag como seleccionado
+            bottomNavigationView.setSelectedItemId(R.id.bag);
         }
 
 
