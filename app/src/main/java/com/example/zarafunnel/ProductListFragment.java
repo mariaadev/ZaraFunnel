@@ -37,11 +37,11 @@ public class ProductListFragment extends Fragment {
         productList.add(new Product("CAMISETA RIB EFECTO LAVADO", "9,95 EUR", R.drawable.model5_image4,""));
         productList.add(new Product("CAMISETA RIB EFECTO LAVADO", "9,95 EUR", R.drawable.model4_image4, ""));
         productList.add(new Product("CAMISETA ALGODÓN MODAL MANGA LARGA", "9,95 EUR", R.drawable.model3_image4, ""));
-
+        productList.add(new Product("JEANS Z1975 DENIM RECTOS TIRO ALTO", "25,95 EUR", R.drawable.trfalto, ""));
         productList.add(new Product("CAMISA FLUIDA BOTÓN DORADO", "22,95", R.drawable.camisa_zara,""));
         productList.add(new Product("CAMISA ENTALLADA POPELÍN", "22,95 EUR", R.drawable.popelin, ""));
         productList.add(new Product("JEANS TRF MOM FIT TIRO ALTO", "25,95 EUR", R.drawable.momjean, ""));
-        productList.add(new Product("JEANS Z1975 DENIM RECTOS TIRO ALTO", "25,95 EUR", R.drawable.trfalto, ""));
+
         //Verifica si el context es adequat per al listener
         if (getActivity() instanceof OnProductClickListener) {
             ProductAdapter adapter = new ProductAdapter(productList, (OnProductClickListener) getActivity(), R.layout.item_product);
