@@ -66,7 +66,7 @@ public class BottomNavigationViewFragment extends Fragment {
             return false;
         });
 
-        //Seleccionar l'ítem segona l'actividad actual
+        //Seleccionar l'ítem segons l'actividad actual
         if (getActivity() instanceof MainActivity) {
             bottomNavigationView.setSelectedItemId(R.id.home);
         } else if (getActivity() instanceof Activity4) {

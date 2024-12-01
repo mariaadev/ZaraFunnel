@@ -41,7 +41,7 @@ public class ProductDetailsBottomSheet extends BottomSheetDialogFragment {
             productImageResId = getArguments().getInt("productImageResId");
         }
 
-        //Configurar el botó d'afegir a la cistella'
+        //Configurar el botó d'afegir a la cistella
         Button addToCartButton = view.findViewById(R.id.button);
         addToCartButton.setOnClickListener(v -> {
             //Obrir el BottomSheet de talles i passar les dades
