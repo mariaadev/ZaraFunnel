@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.models;
 import java.io.Serializable;
 
 public class Product implements Serializable {

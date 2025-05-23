@@ -1,9 +1,8 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -12,7 +11,6 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -24,7 +22,11 @@ import java.util.List;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
-public class Activity5 extends AppCompatActivity {
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
+
+public class FormularioRegistroActivity extends AppCompatActivity {
 
     private ImageButton backButton;
     private EditText inputName, inputLastName, inputEmail, inputAdress, inputAdress2, inputPostalCode, inputPhone, inputRegion;
@@ -36,7 +38,7 @@ public class Activity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        setContentView(R.layout.activity_5);
+        setContentView(R.layout.formulario_registro);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -46,7 +48,7 @@ public class Activity5 extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -78,7 +80,7 @@ public class Activity5 extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, provinces);
         menuDropdown.setAdapter(adapter);
 
-        backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity4.class)));
+        backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), InicioRegistroActivity.class)));
 
         switchCompat =  findViewById(R.id.customThumbSmallSwitch);
         //Si el switchCompat existeix
@@ -113,7 +115,7 @@ public class Activity5 extends AppCompatActivity {
             String province = menuDropdown.getText().toString();
 
             //Crear l'intent i passar les dades
-            Intent intentToActivity6 = new Intent(Activity5.this, Activity6.class);
+            Intent intentToActivity6 = new Intent(FormularioRegistroActivity.this, FomularioEnvioActivity.class);
             intentToActivity6.putExtra("name", name);
             intentToActivity6.putExtra("lastName", lastName);
             intentToActivity6.putExtra("email", email);

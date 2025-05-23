@@ -1,10 +1,18 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.fragments.BottomNavigationViewFragment;
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.fragments.ProductDetailsBottomSheet;
+import com.example.zarafunnel.fragments.ProductListFragment;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.utils.OnProductClickListener;
+
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -33,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
 
         frameLayout.setOnClickListener(v -> {
             Log.d("FrameLayoutClick", "FrameLayout clicked!");
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -71,12 +79,12 @@ public class MainActivity extends AppCompatActivity implements OnProductClickLis
         if (itemId == R.id.home) {
             //Activity actual
         } else if (itemId == R.id.profile) {
-            startActivity(new Intent(this, Activity4.class));
+            startActivity(new Intent(this, InicioRegistroActivity.class));
             overridePendingTransition(0, 0);
             finish();
 
         } else if (itemId == R.id.bag) {
-            startActivity(new Intent(this, Activity3.class));
+            startActivity(new Intent(this, ShoppingCartActivity.class));
             overridePendingTransition(0, 0);
             finish();
 

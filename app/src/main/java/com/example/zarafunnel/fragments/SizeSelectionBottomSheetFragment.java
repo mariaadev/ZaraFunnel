@@ -1,7 +1,6 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,9 +10,12 @@ import android.widget.Button;
 import android.widget.Toast;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.models.ShoppingCart;
+import com.example.zarafunnel.screens.ShoppingCartActivity;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class SizeSelectionBottomSheetFragment extends BottomSheetDialogFragment {
 
@@ -86,7 +88,7 @@ public class SizeSelectionBottomSheetFragment extends BottomSheetDialogFragment 
                 ShoppingCart.addToCart(selectedProduct);
 
                 // Ir a Activity3 y pasar los datos del carrito
-                Intent intent = new Intent(getActivity(), Activity3.class);
+                Intent intent = new Intent(getActivity(), ShoppingCartActivity.class);
                 startActivity(intent);
                 dismiss(); // Cerrar el BottomSheet
             }

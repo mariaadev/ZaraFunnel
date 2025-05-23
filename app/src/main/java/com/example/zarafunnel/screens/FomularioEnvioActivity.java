@@ -1,6 +1,5 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -22,11 +21,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.adapters.ProductAdapter;
+import com.example.zarafunnel.R;
+
 import java.io.Serializable;
 import java.util.List;
 
 
-public class Activity6 extends AppCompatActivity {
+public class FomularioEnvioActivity extends AppCompatActivity {
     TextView textView;
     private RecyclerView productsRecyclerView;
     private ProductAdapter productAdapter;
@@ -38,7 +42,7 @@ public class Activity6 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_6);
+        setContentView(R.layout.formulario_envio_activity);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -49,7 +53,7 @@ public class Activity6 extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -88,7 +92,7 @@ public class Activity6 extends AppCompatActivity {
         productsRecyclerView.setAdapter(productAdapter);
 
         backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity5.class)));
+        backButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), FormularioRegistroActivity.class)));
 
         RadioButton optionFriday = findViewById(R.id.optionFriday);
         RadioButton optionTuesday = findViewById(R.id.optionTuesday);
@@ -130,7 +134,7 @@ public class Activity6 extends AppCompatActivity {
 
             //Si s'ha seleccionat un element del radiio button, navegar següent activity
             if (selectedDate != null && selectedPrice != null) {
-                Intent intentToActivity7 = new Intent(Activity6.this, Activity7.class);
+                Intent intentToActivity7 = new Intent(FomularioEnvioActivity.this, FormularioPagoActivity.class);
                 intentToActivity7.putExtra("name", name);
                 intentToActivity7.putExtra("lastName", lastName);
                 intentToActivity7.putExtra("email", email);
@@ -147,7 +151,7 @@ public class Activity6 extends AppCompatActivity {
 
                 startActivity(intentToActivity7);
             } else {
-                Toast.makeText(Activity6.this, "Por favor, selecciona una opción de envío.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FomularioEnvioActivity.this, "Por favor, selecciona una opción de envío.", Toast.LENGTH_SHORT).show();
             }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

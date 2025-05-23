@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,11 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.zarafunnel.utils.OnProductClickListener;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.adapters.ProductAdapter;
+import com.example.zarafunnel.R;
 
 import java.util.ArrayList;
 import java.util.List;

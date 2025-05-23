@@ -13,31 +13,31 @@
         android:theme="@style/Theme.ZaraFunnel"
         tools:targetApi="31">
         <activity
-            android:name=".Activity9"
+            android:name=".screens.PedidoRealizadoActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity8"
+            android:name=".screens.ResumenFunnelActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity7"
+            android:name=".screens.FormularioPagoActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity6"
+            android:name=".screens.FomularioEnvioActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity5"
+            android:name=".screens.FormularioRegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity4"
+            android:name=".screens.InicioRegistroActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity3"
+            android:name=".screens.ShoppingCartActivity"
             android:exported="false" />
         <activity
             android:name=".Activity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

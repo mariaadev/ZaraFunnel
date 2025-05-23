@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.models;
 
 import java.util.ArrayList;
 import java.util.List;

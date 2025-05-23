@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -20,10 +19,15 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.adapters.ProductAdapter;
+import com.example.zarafunnel.R;
+
 import java.io.Serializable;
 import java.util.List;
 
-public class Activity8 extends AppCompatActivity {
+public class ResumenFunnelActivity extends AppCompatActivity {
     private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, paymentMethod,province;
     private boolean isBusiness;
     private List<Product> cartProducts;
@@ -35,7 +39,7 @@ public class Activity8 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_8);
+        setContentView(R.layout.resumen_funnel_activity);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -46,7 +50,7 @@ public class Activity8 extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -170,7 +174,7 @@ public class Activity8 extends AppCompatActivity {
         province = intent.getStringExtra("province");
     }
     private void navigateToActivity9() {
-        Intent intentToActivity9 = new Intent(Activity8.this, Activity9.class);
+        Intent intentToActivity9 = new Intent(ResumenFunnelActivity.this, PedidoRealizadoActivity.class);
 
         intentToActivity9.putExtra("paymentMethod", paymentMethod);
         intentToActivity9.putExtra("name", name);

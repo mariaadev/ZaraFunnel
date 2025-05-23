@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.screens.ShoppingCartActivity;
 
 public class ShoppingBagFragment extends Fragment {
 
@@ -31,7 +33,7 @@ public class ShoppingBagFragment extends Fragment {
     }
 
     private void openCartActivity() {
-        Intent intent = new Intent(getActivity(), Activity3.class);
+        Intent intent = new Intent(getActivity(), ShoppingCartActivity.class);
         startActivity(intent);
     }
 }

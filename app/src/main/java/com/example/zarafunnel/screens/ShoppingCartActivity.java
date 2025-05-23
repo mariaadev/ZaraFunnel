@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,18 +16,24 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.Log;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import com.example.zarafunnel.fragments.BottomNavigationViewFragment;
+import com.example.zarafunnel.adapters.CartAdapter;
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.models.ShoppingCart;
+
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.view.View;
 
 
-public class Activity3 extends AppCompatActivity implements BottomNavigationViewFragment.NavigationListener {
+public class ShoppingCartActivity extends AppCompatActivity implements BottomNavigationViewFragment.NavigationListener {
 
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
@@ -45,7 +50,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_3);
+        setContentView(R.layout.shopping_cart_activity);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -56,7 +61,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -110,7 +115,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
 
         //Configurar el botó de finalitzar compra
         btn_buy.setOnClickListener(v -> {
-            Intent paymentIntent = new Intent(Activity3.this, Activity4.class);
+            Intent paymentIntent = new Intent(ShoppingCartActivity.this, InicioRegistroActivity.class);
 
             //Pasar la lista de productes a la següent Activity utilitzant putSerializable
             paymentIntent.putExtra("cartItems", (Serializable) cartProducts);
@@ -153,7 +158,7 @@ public class Activity3 extends AppCompatActivity implements BottomNavigationView
             overridePendingTransition(0, 0);
             finish();
         } else if (itemId == R.id.profile) {
-            startActivity(new Intent(this, Activity4.class));
+            startActivity(new Intent(this, InicioRegistroActivity.class));
             overridePendingTransition(0, 0);
             finish();
         } else if (itemId == R.id.bag) {

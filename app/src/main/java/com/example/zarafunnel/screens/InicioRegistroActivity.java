@@ -1,8 +1,7 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,14 +12,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import java.io.Serializable;
 import java.util.List;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
 
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import java.util.ArrayList;
 
-public class Activity4 extends AppCompatActivity {
+public class InicioRegistroActivity extends AppCompatActivity {
     private List<Product> cartProducts;
     private ImageButton closeButton;
     private Button buttonGuest;
@@ -30,7 +31,7 @@ public class Activity4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_4);
+        setContentView(R.layout.inicio_registro_activity);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -41,7 +42,7 @@ public class Activity4 extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -51,26 +52,26 @@ public class Activity4 extends AppCompatActivity {
         cartProducts = (List<Product>) intent.getSerializableExtra("cartItems");
 
         closeButton = findViewById(R.id.closeButton);
-        closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), Activity3.class)));
+        closeButton.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), ShoppingCartActivity.class)));
 
         buttonGuest = findViewById(R.id.buttonGuest);
         buttonGuest.setOnClickListener(v -> {
             //Pasar els productos de la cistella a la actividad 5
-            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            Intent intentToActivity5 = new Intent(InicioRegistroActivity.this, FormularioRegistroActivity.class);
             intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
             startActivity(intentToActivity5);
         });
 
         buttonLogin = findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(v -> {
-            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            Intent intentToActivity5 = new Intent(InicioRegistroActivity.this, FormularioRegistroActivity.class);
             intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
             startActivity(intentToActivity5);
         });
 
         buttonRegister= findViewById(R.id.buttonRegister);
         buttonRegister.setOnClickListener(v -> {
-            Intent intentToActivity5 = new Intent(Activity4.this, Activity5.class);
+            Intent intentToActivity5 = new Intent(InicioRegistroActivity.this, FormularioRegistroActivity.class);
             intentToActivity5.putExtra("cartItems", (Serializable) cartProducts);
             startActivity(intentToActivity5);
         });

@@ -1,8 +1,6 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,11 +8,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.example.zarafunnel.screens.MainActivity;
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.screens.ShoppingCartActivity;
+import com.example.zarafunnel.screens.InicioRegistroActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigationViewFragment extends Fragment {
@@ -69,9 +69,9 @@ public class BottomNavigationViewFragment extends Fragment {
         //Seleccionar l'ítem segons l'actividad actual
         if (getActivity() instanceof MainActivity) {
             bottomNavigationView.setSelectedItemId(R.id.home);
-        } else if (getActivity() instanceof Activity4) {
+        } else if (getActivity() instanceof InicioRegistroActivity) {
             bottomNavigationView.setSelectedItemId(R.id.profile);
-        } else if (getActivity() instanceof Activity3) {
+        } else if (getActivity() instanceof ShoppingCartActivity) {
             bottomNavigationView.setSelectedItemId(R.id.bag);
         }
 

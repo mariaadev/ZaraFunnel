@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
+import com.example.zarafunnel.models.ShoppingCart;
+
 import java.util.List;
 
-public class Activity9 extends AppCompatActivity {
+public class PedidoRealizadoActivity extends AppCompatActivity {
     private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, paymentMethod;
     private boolean isBusiness;
     private List<Product> cartProducts;
@@ -21,7 +24,7 @@ public class Activity9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_9);
+        setContentView(R.layout.pedido_realizado_activity);
 
         //Recuperar dades de l'ntent
         Intent intent = getIntent();
@@ -30,7 +33,7 @@ public class Activity9 extends AppCompatActivity {
         //Configurar el botó de continuar comprant
         Button continueShoppingButton = findViewById(R.id.continueShoppingButton);
         continueShoppingButton.setOnClickListener(v -> {
-            Intent intentMainActivity = new Intent(Activity9.this, MainActivity.class);
+            Intent intentMainActivity = new Intent(PedidoRealizadoActivity.this, MainActivity.class);
             ShoppingCart.clearCart();
             startActivity(intentMainActivity);
             finish();

@@ -1,7 +1,6 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
 import android.os.Bundle;
-import android.util.Size;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +8,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.zarafunnel.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import android.util.Log;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class ProductDetailsBottomSheet extends BottomSheetDialogFragment {
     private String productName;

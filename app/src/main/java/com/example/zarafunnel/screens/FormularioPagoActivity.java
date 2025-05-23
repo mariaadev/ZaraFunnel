@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.screens;
 
 import android.os.Bundle;
 
@@ -10,13 +10,16 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.util.Log;
 import android.widget.FrameLayout;
+
+import com.example.zarafunnel.fragments.FragmentImageButton;
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Activity7 extends AppCompatActivity {
+public class FormularioPagoActivity extends AppCompatActivity {
 
     private String name, lastName, email, address, address2, postalCode, phone, region, shippingDate, shippingPrice, shippingMethod, province;
     private boolean isBusiness;
@@ -26,7 +29,7 @@ public class Activity7 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_7);
+        setContentView(R.layout.formulario_pago_activity);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -37,7 +40,7 @@ public class Activity7 extends AppCompatActivity {
         FrameLayout frameLayout = findViewById(R.id.fragment_container_shopping_bag);
 
         frameLayout.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Activity3.class);
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
         });
 
@@ -84,7 +87,7 @@ public class Activity7 extends AppCompatActivity {
         findViewById(buttonId).setOnClickListener(view -> navigateToActivity8(paymentMethod));
     }
     private void navigateToActivity8(String paymentMethod) {
-        Intent intentToActivity8 = new Intent(Activity7.this, Activity8.class);
+        Intent intentToActivity8 = new Intent(FormularioPagoActivity.this, ResumenFunnelActivity.class);
 
         //Afegir totes les dades al Intent
         intentToActivity8.putExtra("paymentMethod", paymentMethod);

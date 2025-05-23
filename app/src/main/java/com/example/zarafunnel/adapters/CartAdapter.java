@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.zarafunnel.models.Product;
+import com.example.zarafunnel.R;
 
 import java.util.List;
 

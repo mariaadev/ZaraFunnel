@@ -1,4 +1,4 @@
-package com.example.zarafunnel;
+package com.example.zarafunnel.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.zarafunnel.R;
 
 public class FragmentImageButton extends Fragment {
 
