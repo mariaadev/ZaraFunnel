@@ -1,31 +1,50 @@
-# Zara Funnel
-This is a Java-based project developed to practice UI development for Android apps. In this project, I attempted to replicate the Zara app while fulfilling the assignment requirement of recreating a funnel.
-
----
 ## 📸 Screenshots
 
 Here are the screenshots of the application's main screens:
 
-### Dashboard
-![Dashboard](screenshots/inicio_form.png)
+<div align="center">
 
-### Product Detail Bottom Sheet
-![Product Detail Screen](screenshots/form_pantalon.png)
+<table>
+  <tr>
+    <td align="center">
+      <strong>Dashboard</strong><br>
+      <img src="screenshots/inicio_form.png" width="200"/>
+    </td>
+    <td align="center">
+      <strong>Product Detail</strong><br>
+      <img src="screenshots/form_pantalon.png" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Size Detail</strong><br>
+      <img src="screenshots/form_talla.png" width="200"/>
+    </td>
+    <td align="center">
+      <strong>Shopping Cart</strong><br>
+      <img src="screenshots/cesta_zara.png" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Register</strong><br>
+      <img src="screenshots/form_registro.png" width="200"/>
+    </td>
+    <td align="center">
+      <strong>Shipping Info</strong><br>
+      <img src="screenshots/cesta_envio.png" width="200"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Payment</strong><br>
+      <img src="screenshots/form_pago.png" width="200"/>
+    </td>
+    <td align="center">
+      <strong>Confirmation</strong><br>
+      <img src="screenshots/pedido_realizado.png" width="200"/>
+    </td>
+  </tr>
+</table>
 
-### Size Detail Bottom Sheet
-![Product Detail Screen](screenshots/form_talla.png)
-
-### Shopping Cart Screen
-![Shopping Cart Screen](screenshots/cesta_zara.png)
-
-### Register Screen
-![Register Screen](screenshots/form_registro.png)
-
-### Shipping Info Screen
-![Shipping Info Screen](screenshots/cesta_envio.png)
-
-### Payment Cart Screen
-![Payment Cart Screen](screenshots/form_pago.png)
-
-### Confirmation Screen
-![Confirmation Screen](screenshots/pedido_realizado.png)
+</div>
